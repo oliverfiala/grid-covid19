@@ -1,4 +1,4 @@
-![Save the Children](https://github.com/oliverfiala/grid-covid19/blob/main/Data/SaveTheChildren.png)
+![Save the Children](https://github.com/oliverfiala/grid-covid19/blob/master/Data/SaveTheChildren.png)
 # Methodological note for COVID-19 dashboard in GRID 
 
 ### Background 
