@@ -95,5 +95,5 @@ replace regid="NG.ZA" if region==36
 replace regid="NG.FC" if region==37
 
 *Save
-keep sex location region regid wealth natalcare medicaltreatment fsec remotelearning schoolreturn schoolattendance govtsupport
+keep sex location region regid wealth weight natalcare medicaltreatment fsec remotelearning schoolreturn schoolattendance govtsupport 
 save "prep\NGA_wb_r4.dta", replace

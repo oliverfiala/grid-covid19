@@ -65,5 +65,5 @@ replace regid="UGDHS2016452032" if region==14
 replace regid="UGDHS2016452009" if region==15
 
 *Save
-keep sex location region regid wealth medicine medicaltreatment fsec govtsupport
+keep sex location region regid weight wealth medicine medicaltreatment fsec govtsupport
 save "prep\UGA_wb_r2.dta", replace

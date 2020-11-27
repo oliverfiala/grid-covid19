@@ -109,5 +109,5 @@ replace regid="KE.NM" if region==46
 replace regid="KE.NB" if region==47
 
 *Save
-keep sex location region regid wealth medicine medicaltreatment fsec schoolattendance teacher remotelearning govtsupport
+keep sex location region regid wealth medicine medicaltreatment fsec schoolattendance teacher remotelearning govtsupport weight
 save "prep\KEN_wb_r1.dta", replace

@@ -2,12 +2,12 @@
 cd "S:\Advocacy Division\GPAR Department\Inclusive Development\Research\COVID-19\"
 
 
-*--- ROUND 4 ---
+*--- ROUND 5 ---
 
-use "source\wb\ETH\r4_wb_lsms_hfpm_hh_survey_public_microdata.dta", clear
+use "source\wb\ETH\r5_wb_lsms_hfpm_hh_survey_public_microdata_Non20.dta", clear
 
 *Weights
-rename phw4 weight
+rename phw5 weight
 
 *Prepare dataset by renaming & creating variables on interest
 rename cs1_region region
@@ -35,7 +35,9 @@ replace fsec=0 if fies==0 | fies==1
 replace fsec=1 if fies==2 | fies==3
 
 *Education
-rename ac4a_pri_child remotelearning_primary
+gen remotelearning_primary=.
+replace remotelearning_primary=1 if ac4a_pri_child==1
+replace remotelearning_primary=0 if ac4a_pri_child==0
 rename ac4b_sec_child remotelearning_secondary
 *replace remotelearning_secondary=. if remotelearning_secondary==-98
 
@@ -62,5 +64,5 @@ replace regid="ET.AA" if region==14
 replace regid="ET.DD" if region==15
 
  *Save
-keep sex location region regid wealth medicine medicaltreatment fsec remotelearning* govtsupport cashtransfer
-save "prep\ETH_wb_r4.dta", replace
+keep sex location region regid weight wealth medicine medicaltreatment fsec remotelearning* govtsupport cashtransfer
+save "prep\ETH_wb_r5.dta", replace

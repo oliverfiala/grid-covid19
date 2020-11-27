@@ -76,5 +76,5 @@ replace regid="MLDHS2018427011" if region==8
 replace regid="MLDHS2018427014" if region==9
 
 *Save
-keep sex location region regid wealth poor medicine medicaltreatment schoolreturn fsec fseccovid govtsupport
+keep sex location region regid wealth poor medicine medicaltreatment schoolreturn fsec fseccovid govtsupport weight
 save "prep\MLI_wb_r3.dta", replace

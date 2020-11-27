@@ -75,5 +75,5 @@ replace regid="TD.SI" if region==21
 replace regid="TD.EE" if region==23
 
 *Save
-keep sex location region regid wealth poor medicaltreatment fsec remotelearning teacher govtsupport
+keep sex location region regid weight wealth poor medicaltreatment fsec remotelearning teacher govtsupport
 save "prep\TCD_wb_r1.dta", replace

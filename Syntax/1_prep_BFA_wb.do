@@ -127,5 +127,5 @@ replace regid="BF.SA" if region==12
 replace regid="BF.SO" if region==13
 
 *Save
-keep sex location region regid wealth poor medicine medicaltreatment fsec remotelearning teacher govtsupport
+keep sex location region regid wealth poor medicine medicaltreatment fsec remotelearning teacher govtsupport weight
 save "prep\BFA_wb_r2.dta", replace

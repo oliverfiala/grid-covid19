@@ -87,5 +87,5 @@ replace regid="MW.BA" if region==312
 replace regid="MW.NN" if region==313
 
 *Save
-keep sex location region regid wealth natalcare medicaltreatment fsec schoolreturn govtsupport
+keep sex location region regid wealth natalcare medicaltreatment fsec schoolreturn govtsupport weight
 save "prep\MWI_wb_r3.dta", replace
