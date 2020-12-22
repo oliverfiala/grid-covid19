@@ -51,7 +51,6 @@ replace remotelearning_secondary=0 if edu3==0 | edu3==2 | edu3==3
 
 rename net1 cashtransfer_usual
 
-*Create variables and labels
 gen schoolreturn_primary=.
 replace schoolreturn_primary=1 if edu10_p_2==1 | edu10_p_3==1
 replace schoolreturn_primary=0 if edu10_p_4==1 | edu10_p_5==1
@@ -70,9 +69,13 @@ gen govtsupport=1
 replace govtsupport=0 if net3=="0"
 replace govtsupport=. if net3=="999"
 
+gen incomeloss=.	//Over the past 7 days, compared to before the government closed the schools
+replace incomeloss=1 if inc9==3
+replace incomeloss=0 if inc9==1 | inc9==2
+
 *Regional attribution: N/A as Mexico only distinguishes between Mexico City and Mexico State
 gen regid=""
 
 *Save
-keep sex location region regid wealth healthseeking fsec remotelearning* schoolreturn cashtransfer* govtsupport
+keep sex location region regid wealth healthseeking fsec remotelearning* schoolreturn cashtransfer* govtsupport incomeloss
 save "prep\MEX_ipa_r1.dta", replace

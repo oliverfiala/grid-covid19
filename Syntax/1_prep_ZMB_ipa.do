@@ -64,21 +64,25 @@ gen govtsupport=1
 replace govtsupport=0 if net3_0==1
 replace govtsupport=. if net3=="-666"
 
+gen incomeloss=.	//Over the past 7 days, compared to before the government closed the schools
+replace incomeloss=1 if inc9==3 | inc9==4
+replace incomeloss=0 if inc9==1 | inc9==2
+
 *Regional attribution
 label define region 1 "Central" 2 "Copperbelt" 3 "Eastern" 4 "Luapula" 5 "Muchinga" /*
 */	6 "Northern" 7 "Northwestern" 8 "Southern" 9 "Western" 10 "Lusaka", modify
 gen regid=""
-replace regid="ZMDHS2018456001" if region==1
-replace regid="ZMDHS2018456002" if region==2
-replace regid="ZMDHS2018456012" if region==3
-replace regid="ZMDHS2018456004" if region==4
-replace regid="ZMDHS2018456011" if region==5
-replace regid="ZMDHS2018456010" if region==6
-replace regid="ZMDHS2018456007" if region==7
-replace regid="ZMDHS2018456008" if region==8
-replace regid="ZMDHS2018456009" if region==9
-replace regid="ZMDHS2018456005" if region==10
+replace regid="ZMB.1_1" if region==1
+replace regid="ZMB.2_1" if region==2
+replace regid="ZMB.3_1" if region==3
+replace regid="ZMB.4_1" if region==4
+replace regid="ZMB.6_1" if region==5
+replace regid="ZMB.8_1" if region==6
+replace regid="ZMB.7_1" if region==7
+replace regid="ZMB.9_1" if region==8
+replace regid="ZMB.10_1" if region==9
+replace regid="ZMB.5_1" if region==10
 
 *Save
-keep sex location region regid wealth healthseeking fsec remotelearning* schoolreturn cashtransfer* govtsupport
+keep sex location region regid wealth healthseeking fsec remotelearning* schoolreturn cashtransfer* govtsupport incomeloss
 save "prep\ZMB_ipa_r1.dta", replace

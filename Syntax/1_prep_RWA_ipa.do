@@ -56,14 +56,18 @@ replace cashtransfer_delay=1 if net2_0==0
 gen govtsupport=1
 replace govtsupport=0 if net3_0==1
 
+gen incomeloss=.	//Over the past 7 days, compared to a typical week before lockdown
+replace incomeloss=1 if inc9==3 | inc9==4
+replace incomeloss=0 if inc9==1 | inc9==2
+
 *Regional attribution: N/A due to missing province labels
 gen regid=""
-replace regid="RWDHS2015442005" if region==2
-replace regid="RWDHS2015442001" if region==3
-replace regid="RWDHS2015442004" if region==4
-replace regid="RWDHS2015442002" if region==5
-replace regid="RWDHS2015442003" if region==6
+replace regid="RWA.3_1" if region==2
+replace regid="RWA.5_1" if region==3
+replace regid="RWA.1_1" if region==4
+replace regid="RWA.2_1" if region==5
+replace regid="RWA.4_1" if region==6
 
 *Save
-keep sex location region regid wealth healthseeking fsec remotelearning* cashtransfer* govtsupport
+keep sex location region regid wealth healthseeking fsec remotelearning* cashtransfer* govtsupport incomeloss
 save "prep\RWA_ipa_r1.dta", replace

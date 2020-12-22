@@ -60,7 +60,10 @@ gen cashtransfer_delay=.		//delay or other difficulties
 replace cashtransfer_delay=1 if net2_0==0
 replace cashtransfer_delay=0 if net2_0==1
 
-*Dummies
+gen incomeloss=.	//Over the past 7 days, compared to before the pandemic started/February 2020
+replace incomeloss=1 if inc9==0 | inc9==3
+replace incomeloss=0 if inc9==1 | inc9==2
+
 gen schoolreturn=.
 replace schoolreturn=1 if edu10==1
 replace schoolreturn=0 if edu10==2 | edu10==3 | edu10==4
@@ -72,20 +75,21 @@ replace govtsupport=0 if net3=="0"
 
 *Regional attribution
 gen regid=""
-replace regid="BF.BO" if region==1
-replace regid="BF.CD" if region==2
-replace regid="BF.CT" if region==3
-replace regid="BF.CE" if region==4
-replace regid="BF.CN" if region==5
-replace regid="BF.CO" if region==6
-replace regid="BF.CS" if region==7
-replace regid="BF.ES" if region==8
-replace regid="BF.HB" if region==9
-replace regid="BF.NO" if region==10
-replace regid="BF.PC" if region==11
-replace regid="BF.SA" if region==12
-replace regid="BF.SO" if region==13
-	
+replace regid="BFA.1_1" if region==1
+replace regid="BFA.2_1" if region==2
+replace regid="BFA.7_1" if region==3
+replace regid="BFA.3_1" if region==4
+replace regid="BFA.4_1" if region==5
+replace regid="BFA.5_1" if region==6
+replace regid="BFA.6_1" if region==7
+replace regid="BFA.8_1" if region==8
+replace regid="BFA.9_1" if region==9
+replace regid="BFA.10_1" if region==10
+replace regid="BFA.11_1" if region==11
+replace regid="BFA.12_1" if region==12
+replace regid="BFA.13_1" if region==13
+
+
 *Save
-keep sex location region regid wealth healthseeking fsec remotelearning* schoolreturn cashtransfer* govtsupport
+keep sex location region regid wealth healthseeking fsec remotelearning* schoolreturn cashtransfer* govtsupport incomeloss
 save "prep\BFA_ipa_r1.dta", replace

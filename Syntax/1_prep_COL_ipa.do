@@ -62,6 +62,10 @@ gen govtsupport=.
 replace govtsupport=0 if net3==2
 replace govtsupport=1 if net3==1
 
+gen incomeloss=.	//Over the past 7 days, compared to before the government closed the schools
+replace incomeloss=1 if inc9==3 | inc9==4
+replace incomeloss=0 if inc9==1 | inc9==2
+
 *Regional attribution
 gen regid=""
 replace regid="CODHS2015397037" if region==5
@@ -99,5 +103,5 @@ replace regid="CODHS2015397055" if region==97
 replace regid="CODHS2015397051" if region==99
 
 *Save
-keep sex location region regid wealth healthseeking fsec remotelearning* cashtransfer* govtsupport
+keep sex location region regid wealth healthseeking fsec remotelearning* cashtransfer* govtsupport incomeloss
 save "prep\COL_ipa_r1.dta", replace

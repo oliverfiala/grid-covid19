@@ -50,6 +50,10 @@ rename net1 cashtransfer
 rename net2 cashtransfer_delay
 rename net1_p govtsupport
 
+gen incomeloss=.	//Over the past 7 days, compared to before COVID-19 started affecting the country (excl. remittances)
+replace incomeloss=1 if inc9==3 | inc9==4
+replace incomeloss=0 if inc9==1 | inc9==2
+
 *Regional attribution
 gen regid=""
 replace regid="PHDHS2017439019" if region==1
@@ -71,5 +75,5 @@ replace regid="PHDHS2017439018" if region==16
 replace regid="PHDHS2017439020" if region==17
 
 *Save
-keep sex location region regid wealth fsec schoolreturn cashtransfer* govtsupport
+keep sex location region regid wealth fsec schoolreturn cashtransfer* govtsupport incomeloss
 save "prep\PHL_ipa_r1.dta", replace

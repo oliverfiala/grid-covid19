@@ -1,29 +1,43 @@
 *Set working directory
 cd "S:\Advocacy Division\GPAR Department\Inclusive Development\Research\COVID-19\"
 
-*Open Tabulation and reshape
+*Open Tabulation & identify relevant observations and surveys
 use "dat/tabulation.dta", clear
-replace ssremotelearning=ssremotelearning_primary if valueremotelearning==. & valueremotelearning_primary!=.	// if remote learning does not exist for all age groups, use primary school only
-replace seremotelearning=seremotelearning_primary if valueremotelearning==. & valueremotelearning_primary!=.	
-replace valueremotelearning=valueremotelearning_primary if valueremotelearning==. & valueremotelearning_primary!=.	
-replace sshealthseeking=ssmedicaltreatment if valuehealthseeking==. & valuemedicaltreatment!=.		// in World Bank surveys, medical treatment describes access to health seeking behaviour (reverese describes lack of, as measured in IPA surveys)
-replace sehealthseeking=semedicaltreatment if valuehealthseeking==. & valuemedicaltreatment!=.	
-replace valuehealthseeking=100-valuemedicaltreatment if valuehealthseeking==. & valuemedicaltreatment!=.	
+gen _disagg=0
+replace _disagg=1 if group!="all"
+egen disagreggation=max(_disagg), by(countrycode source round)	// Identify surveys with disaggregation
+egen _dissagg_othersources=max(_disagg), by(countrycode)
+drop if disagreggation==0 & _dissagg_othersources==1			// if multiple sources exist, drop surveys without disaggregated data
+drop _*
 
+bysort countrycode: tab source									// identify countries in which more than one survey has been performed; keep more relevant ones
+drop if countrycode=="BFA" & source=="ipa"						// keep WB survey for BFA as it includes multiple rounds
+drop if countrycode=="CAF" & wb_dashboard==1					// missing information on timing of suevey in Central African Republic
+drop if (countrycode=="VNM" | countrycode=="ETH") & source=="yl"
+
+*Reshape
 duplicates list countrycode group groupvalue round source
 reshape long value ss se, i(countrycode group groupvalue source round) j(indicator) string
+
+*Identify latest round for each country/indicator				// this requires months/years; currently based on rounds (works only within surveys)
+egen _last=max(round) if value!=., by(countrycode indicator)
+gen last=1 if round==_last
+drop _*
 
 *Merge with population estimates for 2020 (including country names and Iso2 codes) & keep only relevant indicators
 merge m:1 countrycode using "dat/population2020.dta", nogen keep(1 3)
 keep if group=="all" | group=="region" | group=="location" | group=="wealth" | group=="poor"
 drop if group=="wealth" & groupvalue!=1 & groupvalue!=5		// keep only poorest and richest quintiles
 drop if group=="region" & regid==""							// drop regions where not regid exists as those cannot be displayed in map
+drop if group=="region" & last!=1							// keep only latest value for regions (otherwise this creates an error in calculating worst/best region)
 keep if indicator=="healthseeking" | indicator=="fsec" | indicator=="remotelearning" | indicator=="schoolreturn" | indicator=="govtsupport" | indicator=="cashtransfer_delay"
 drop if value==.
 drop if ss<25 & group!="region"								// drop observations with sample sizes <25
 replace value=. if ss<25 & group=="region"
-drop if countrycode=="BFA" & source=="wb"					// keep RECOVR survey for BFA as it includes more relevant indicators
 drop if countrycode=="MLI" & indicator=="schoolreturn"		// Schools had not been reopened widely at the time of survey
+replace disagreggation=0 if countrycode=="IND" & indicator=="govtsupport"	// no variation in government support in India
+drop if countrycode=="IND" & indicator=="govtsupport" & group!="all"
+replace country="India (Andhra Pradesh & Telangana)" if countrycode=="IND" & source=="yl"
 
 *Adjust regional labels
 merge m:m regid using "dat/region_labels", keep(1 3) nogen
@@ -48,8 +62,14 @@ replace abs=value/100*(pop0017-pop0004)*_ssrelative if theme=="ed"	// Assumption
 
 *Other preparation for export to Tableau
 ren source sr
-drop year pop* sp_urb_totl_in_zs _*
-drop round
+replace sr="wb_dashboard" if sr=="wb" & wb_dashboard==1
+drop pop* sp_urb_totl_in_zs _* wb_dashboard
 
 export delimited "dat/grid_covid19.csv", replace nolabel
-*export delimited "C:\Users\OFiala\OneDrive - Save the Children UK\GRID local\Tableau\tableau_covid19.csv", replace nolabel
+export delimited "C:\Users\OFiala\OneDrive - Save the Children UK\GRID local\Tableau\tableau_covid19.csv", replace nolabel
+
+keep if last==1 & group=="all"
+drop group* regid
+ren country country_national
+export delimited "dat/tableau_covid19_national.csv", replace nolabel
+export delimited "C:\Users\OFiala\OneDrive - Save the Children UK\GRID local\Tableau\tableau_covid19_national.csv", replace nolabel

@@ -1,0 +1,92 @@
+*Set working directory
+cd "S:\Advocacy Division\GPAR Department\Inclusive Development\Research\COVID-19\"
+
+*--- ROUND 1 ---
+*Open first survey
+use "source\yl\VNM\vn_yc_covid_arch.dta", clear
+gen cohort=1
+tempfile vn_yc_covid_arch
+save `vn_yc_covid_arch', replace
+
+use "source\yl\VNM\vn_oc_covid_arch.dta", clear
+gen cohort=2
+append using `vn_yc_covid_arch'
+tempfile vn_covid_arch
+save `vn_covid_arch', replace
+
+*Open second survey
+use "source\yl\VNM\vn_oc_covid_householdrostercov1_arch.dta", clear
+gen cohort=2
+tempfile vn_oc_covid_hh_arch
+save `vn_oc_covid_hh_arch', replace
+
+use "source\yl\VNM\vn_yc_covid_householdrostercov1_arch.dta", clear
+gen cohort=1
+append using `vn_oc_covid_hh_arch'
+
+*Merge
+merge m:1 CHILDCODE using `vn_covid_arch', nogen
+
+*Disaggregation
+rename typesite_fc location
+replace location=2 if location==0 	// 1 Urban 2 Rural
+gen poor=1
+replace poor=0 if hep_group==1
+rename ACCINTCOV1 internetaccess
+gen region=.
+rename MEMAGECOV1 age
+replace age=. if age==-99 | age==-9 | age==-77
+rename MEMSEXCOV1 sex
+replace sex=. if sex==88
+
+*Variables of interest
+gen govtsupport=.		//No timeframe
+replace govtsupport=0 if RCVSPTCOV1==0 & RELATECOV1==0
+replace govtsupport=1 if (RCVSPTCOV1==1 | RCVSPTCOV1==2) & RELATECOV1==0
+
+gen fsec=.
+replace fsec=WNTHNGCOV1 if RELATECOV1==0	//Time household ran out of food at least once since outbreak
+
+rename HHUN191COV1 schoolinterrupt
+replace schoolinterrupt=. if schoolinterrupt==88
+
+rename HHUN192COV1 schooldropout
+gen schoolreturn=.
+replace schoolreturn=1 if schooldropout==0
+replace schoolreturn=0 if schooldropout==1
+replace schoolreturn=. if schooldropout==88
+
+rename HHUN193COV1 schoolremote
+replace schoolremote=. if schoolremote==88
+
+gen schoolswitch=.
+replace schoolswitch=1 if HHUN194COV1==1 | HHUN195COV1==1
+replace schoolswitch=0 if HHUN194COV1==0 & HHUN195COV1==0
+
+gen remotelearning=.
+replace remotelearning=1 if schoolinterrupt==1 & schoolremote==1
+replace remotelearning=0 if schoolinterrupt==1 & schoolremote==0
+
+/*
+gen outofschool=.
+replace outofschool=0 if schoolinterrupt==0 | schooldropout==0 | schoolremote==1 /*| schoolswitch==1*/
+replace outofschool=1 if schoolinterrupt==1 & schoolremote==0
+
+*Other variables
+gen homeworking=0		//Started working remotely due to COVID-19
+replace homeworking=. if WRKHMECOV1==0		
+replace homeworking=1 if WRKHMECOV1==4
+
+gen wellbeing=.
+replace wellbeing=1 if SUBWELCOV1<=3	//1 Okay 0 Not okay
+replace wellbeing=0 if SUBWELCOV1>=4
+*/
+
+tab fsec
+tab govtsupport
+tab outofschool
+tab remotelearning
+
+*Save
+keep cohort age sex location poor region internetaccess fsec schoolinterrupt schoolreturn schoolremote /*outofschool homeworking wellbeing */ remotelearning schoolswitch
+save "prep/VNM_yl_r1.dta", replace

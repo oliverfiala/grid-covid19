@@ -12,10 +12,14 @@ fs "prep/*.dta"
 foreach file in `r(files)' {
 	use "prep/`file'", clear
 	gen countrycode=upper(substr("`file'",1,3))
-	gen round=substr("`file'",-5,1)
-	destring round, replace
+	cap confirm var round
+	if _rc!=0 {
+		gen round=substr("`file'",-5,1)
+		destring round, replace
+	}
 	gen source="ipa" if substr("`file'",5,3)=="ipa"
 	replace source="wb" if substr("`file'",5,2)=="wb"
+	replace source="yl" if substr("`file'",5,2)=="yl"
 	gen group=""
 	gen groupvalue=.
 	gen grouplabel=""
@@ -29,12 +33,16 @@ foreach file in `r(files)' {
 		gen se`ind'=.
 		cap confirm var `ind'
 		if _rc==0 { 
+		qui sum `ind'
+		if r(N)>25 { 
 			qui reg `ind' [aw=weight]
 			replace value`ind'=_b[_cons]*100 in 1
 			replace se`ind'=_se[_cons]*100 in 1
 			replace ss`ind'=e(N) in 1
 		}
+		}
 	}
+	
 	*Gender
 	replace group="sex" in 2/3
 	replace groupvalue=1 in 2
@@ -72,10 +80,10 @@ foreach file in `r(files)' {
 			replace value`ind'=_b[_cons]*100 in 4
 			replace se`ind'=_se[_cons]*100 in 4
 			replace ss`ind'=e(N) in 4
-			qui reg `ind' [aw=weight] if location==2
-			replace value`ind'=_b[_cons]*100 in 5
-			replace se`ind'=_se[_cons]*100 in 5
-			replace ss`ind'=e(N) in 5
+			cap qui reg `ind' [aw=weight] if location==2
+			cap replace value`ind'=_b[_cons]*100 in 5
+			cap replace se`ind'=_se[_cons]*100 in 5
+			cap replace ss`ind'=e(N) in 5
 		}
 		}
 	}
@@ -174,6 +182,24 @@ foreach file in `r(files)' {
 	append using "dat/`file'"
 }
 order countrycode source round group* regid
+
+replace ssremotelearning=ssremotelearning_primary if valueremotelearning==. & valueremotelearning_primary!=.	// if remote learning does not exist for all age groups, use primary school only
+replace seremotelearning=seremotelearning_primary if valueremotelearning==. & valueremotelearning_primary!=.	
+replace valueremotelearning=valueremotelearning_primary if valueremotelearning==. & valueremotelearning_primary!=.	
+replace sshealthseeking=ssmedicaltreatment if valuehealthseeking==. & valuemedicaltreatment!=.					// in World Bank surveys, medical treatment describes access to health seeking behaviour (reverese describes lack of, as measured in IPA surveys)
+replace sehealthseeking=semedicaltreatment if valuehealthseeking==. & valuemedicaltreatment!=.	
+replace valuehealthseeking=100-valuemedicaltreatment if valuehealthseeking==. & valuemedicaltreatment!=.	
+
+merge 1:1 countrycode source round group groupvalue using "dat/wb_dashboard.dta"
+gen wb_dashboard=1 if _merge==2
+list countrycode source round valueremotelearning indicator_valremotelearning if _merge==3 & group=="all"
+list countrycode source round valuehealthseeking indicator_valhealthseeking if _merge==3 & group=="all"
+list countrycode source round valuegovtsupport indicator_valgovtsupport if _merge==3 & group=="all"
+foreach ind in healthseeking remotelearning govtsupport {
+	replace ss`ind'=sample_s`ind' if wb_dashboard==1 & value`ind'==. & indicator_val`ind'!=.
+	replace value`ind'=indicator_val`ind' if wb_dashboard==1 & value`ind'==. & indicator_val`ind'!=.
+}
+drop _merge sample_s* indicator_val*
 replace grouplabel="National average" if group=="all"
 replace group="region" if group=="reg"
 save "dat/tabulation.dta", replace

@@ -46,23 +46,27 @@ rename net1 cashtransfer
 rename net2 cashtransfer_delay		// delay or difficulty
 rename net3 govtsupport
 
+gen incomeloss=.	//Over the past 7 days, compared to before the government closed the schools
+replace incomeloss=1 if inc9==3
+replace incomeloss=0 if inc9==1 | inc9==2
+
 *Regional attribution
 gen regid=""
-replace regid="CI.AB" if region==1
-replace regid="CI.YM" if region==2
-replace regid="CI.BA" if region==3
-replace regid="CI.CM" if region==4
-replace regid="CI.DE" if region==5
-replace regid="CI.GD" if region==6
-replace regid="CI.LA" if region==7
-replace regid="CI.LN" if region==8
-replace regid="CI.MN" if region==9
-replace regid="CI.SM" if region==10
-replace regid="CI.SV" if region==11
-replace regid="CI.VB" if region==12
-replace regid="CI.WB" if region==13
-replace regid="CI.ZA" if region==14
+replace regid="CIV.1_1" if region==1
+replace regid="CIV.13_1" if region==2
+replace regid="CIV.2_1" if region==3
+replace regid="CIV.3_1" if region==4
+replace regid="CIV.4_1" if region==5
+replace regid="CIV.5_1" if region==6
+replace regid="CIV.6_1" if region==7
+replace regid="CIV.7_1" if region==8
+replace regid="CIV.8_1" if region==9
+replace regid="CIV.9_1" if region==10
+replace regid="CIV.10_1" if region==11
+replace regid="CIV.11_1" if region==12
+replace regid="CIV.12_1" if region==13
+replace regid="CIV.14_1" if region==14
 
 *Save
-keep sex location region regid wealth healthseeking fsec remotelearning* schoolreturn cashtransfer* govtsupport
+keep sex location region regid wealth healthseeking fsec remotelearning* schoolreturn cashtransfer* govtsupport incomeloss
 save "prep\CIV_ipa_r1.dta", replace

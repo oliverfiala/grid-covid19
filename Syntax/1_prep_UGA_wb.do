@@ -2,14 +2,14 @@
 cd "S:\Advocacy Division\GPAR Department\Inclusive Development\Research\COVID-19\"
 
 
-*--- ROUND 2 ---
-
-use "source\wb\UGA\round2\SEC10.dta", clear
+*--- ROUNDS 1-2 ---
+forvalues r=1/2 {
+use "source\wb\UGA\round`r'\SEC10.dta", clear
 duplicates list HHID
 duplicates drop HHID, force
-merge 1:1 HHID using "source\wb\UGA\round2\SEC4.dta", nogen
-merge 1:1 HHID using "source\wb\UGA\round2\SEC8.dta", nogen	
-merge 1:1 HHID using "source\wb\UGA\round2\Cover.dta", nogen
+merge 1:1 HHID using "source\wb\UGA\round`r'\SEC4.dta", nogen
+merge 1:1 HHID using "source\wb\UGA\round`r'\SEC8.dta", nogen	
+merge 1:1 HHID using "source\wb\UGA\round`r'\Cover.dta", nogen
 
 *Weights
 rename wfinal weight
@@ -20,16 +20,35 @@ replace location=2 if urban==3
 gen sex=.
 rename region area
 encode subreg, gen(region)
-gen wealth=.
+
+*Wealth disaggregation
+if `r'==2{
+	forvalues x=1/5 {
+	replace s4q12__`x'=0 if s4q12__`x'==2
+	}
+
+	pca s4q12__1 s4q12__2 s4q12__3 s4q12__4 s4q12__5
+	*screeplot, yline(1) ci(het)
+	predict pc1 /*pc2 pc3*/, score 
+	xtile wealth=pc1[aw=weight], n(5)
+}
+else {
+	gen wealth=.
+	}
+gen poverty=.
 
 *Health
 gen medicine=.
-replace medicine=0 if s4q08==1
+replace medicine=0 if s4q08==1		//Past week (R1-2)
 replace medicine=1 if s4q08==2
 gen medicaltreatment=.
 replace medicaltreatment=1 if s4q10==1
 replace medicaltreatment=0 if s4q10==2
 
+if `r'==1 {
+	gen fsec=.
+	}
+if `r'==2 {
 *Nutrition (FIES scale - 30 days - http://www.fao.org/3/a-as583e.pdf)
 gen fies=1		//Mild
 replace fies=0 if s8q01+s8q02+s8q03+s8q04+s8q05+s8q06+s8q07+s8q08==16
@@ -37,14 +56,35 @@ replace fies=2 if (s8q04==1 | s8q05==1 | s8q06==1) //Moderate
 replace fies=3 if (s8q07==1 | s8q08==1) //Severe
 gen fsec=0
 replace fsec=1 if fies==2 | fies==3
+}
+
+*Education
+gen teacher=.
+gen remotelearning=.
+if `r'==1 {
+	replace teacher=1 if s4q16==1
+	replace teacher=0 if s4q16==2
+	replace remotelearning=1 if  s4q014==1
+	replace remotelearning=0 if  s4q014==2
+}
 
 *Social protection (round 2 timeframe: since last interview)
+gen cashtransfer_delay=.
+if `r'==1 {
+	gen govtsupport=.
+	replace govtsupport=1 if s10q01==1		//Since 20 March
+	replace govtsupport=0 if s10q01==2
+	}
+else {
 gen assistance=1
-replace assistance=0 if s10q01==2
+replace assistance=0 if s10q01==2		//Since last interview
 gen govtsupport=0
 replace govtsupport=1 if s10q03__1==1
 gen ngosupport=0
 replace ngosupport=1 if s10q03__4==1
+replace cashtransfer_delay=1 if s10q05==1	//Refers to difficulties accessing any kind of assistance, not only cash transfer
+replace cashtransfer_delay=0 if s10q05==2
+}
 
 *Regional attribution
 gen regid=""
@@ -65,5 +105,6 @@ replace regid="UGDHS2016452032" if region==14
 replace regid="UGDHS2016452009" if region==15
 
 *Save
-keep sex location region regid weight wealth medicine medicaltreatment fsec govtsupport
-save "prep\UGA_wb_r2.dta", replace
+keep sex location region regid weight wealth poverty medicine medicaltreatment fsec teacher remotelearning govtsupport
+save "prep\UGA_wb_r`r'.dta", replace
+}

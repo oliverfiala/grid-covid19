@@ -57,6 +57,10 @@ replace cashtransfer_delay=0 if net2=="0"
 gen govtsupport=1
 replace govtsupport=0 if net3_0==1
 
+gen incomeloss=.	//Over the past 7 days, compared to before the government closed the schools/end of March 2020
+replace incomeloss=1 if inc9==3 | inc9==4
+replace incomeloss=0 if inc9==1 | inc9==2
+
 *Regional attribution: create larger regions for sample sizes and connection with shapefile
 ren region region2
 label define region2 1 "Bombali" 2 "Falaba" 3 "Karena" 4 "Portloko" 5 "Kambia" 6 "Tonkolili" 7 "Koinadugu" 8 "Bo" /*
@@ -69,11 +73,11 @@ replace region=4 if region2==15 | region2==16
 label define region 1 "East" 2 "North" 3 "South" 4 "West"
 label values region region
 gen regid=""
-replace regid="SL.EA" if region==1
-replace regid="SL.NO" if region==2
-replace regid="SL.SO" if region==3
-replace regid="SL.WE" if region==4
+replace regid="SLE.1_1" if region==1
+replace regid="SLE.2_1" if region==2
+replace regid="SLE.3_1" if region==3
+replace regid="SLE.4_1" if region==4
 
 *Save
-keep sex location region regid wealth healthseeking fsec remotelearning* cashtransfer* govtsupport
+keep sex location region regid wealth healthseeking fsec remotelearning* cashtransfer* govtsupport incomeloss
 save "prep\SLE_ipa_r1.dta", replace

@@ -3,10 +3,20 @@ cd "S:\Advocacy Division\GPAR Department\Inclusive Development\Research\COVID-19
 
 *--- ROUND 1 ---
 
+*Prepare income loss file
+use "source\wb\TCD\round01_income.dta", clear
+duplicates drop interview__key interview__id, force
+gen incomeloss=0 if s07q02<=2		//Since beginning of the pandemic (March 2020)
+replace incomeloss=1 if s07q02==3
+tempfile round01_income
+save `round01_income', replace
+
+*Open surveys and merge with income loss
 use "source\wb\TCD\round01_assistance.dta", clear
 duplicates list hhid interview__key interview__id
 duplicates drop hhid interview__key interview__id, force
 merge 1:1 hhid using "source\wb\TCD\round01_household.dta", nogen
+merge 1:1 interview__key interview__id using `round01_income', nogen keepusing(incomeloss)
 
 *Weights
 rename Weight1 weight
@@ -45,35 +55,35 @@ gen fsec=0
 replace fsec=1 if fies==2 | fies==3
 
 *Social protection
-gen govtsupport=.		//Assistance from govt or other org over past month!
+gen govtsupport=.		//Assistance from govt or other org over past month
 replace govtsupport=1 if s05q21==1
 replace govtsupport=0 if s05q21==2
 
 *Regional attribution
 gen regid=""
-replace regid="TD.BA" if region==1
-replace regid="TD.BR" if region==2
-replace regid="TD.CB" if region==3
-replace regid="TD.GR" if region==4
-replace regid="TD.HD" if region==5
-replace regid="TD.KM" if region==6
-replace regid="TD.LC" if region==7
-replace regid="TD.LO" if region==8
-replace regid="TD.LR" if region==9
-replace regid="TD.MA" if region==10
-replace regid="TD.ME" if region==11
-replace regid="TD.MW" if region==12
-replace regid="TD.MC" if region==13
-replace regid="TD.OA" if region==14
-replace regid="TD.SA" if region==15
-replace regid="TD.TA" if region==16
-replace regid="TD.BI" if region==17
-replace regid="TD.NJ" if region==18
-replace regid="TD.BG" if region==19
-replace regid="TD.EO" if region==20
-replace regid="TD.SI" if region==21
-replace regid="TD.EE" if region==23
+replace regid="TCD.2_1" if region==1
+replace regid="TCD.3_1" if region==2
+replace regid="TCD.4_1" if region==3
+replace regid="TCD.7_1" if region==4
+replace regid="TCD.8_1" if region==5
+replace regid="TCD.9_1" if region==6
+replace regid="TCD.10_1" if region==7
+replace regid="TCD.11_1" if region==8
+replace regid="TCD.12_1" if region==9
+replace regid="TCD.13_1" if region==10
+replace regid="TCD.14_1" if region==11
+replace regid="TCD.15_1" if region==12
+replace regid="TCD.16_1" if region==13
+replace regid="TCD.17_1" if region==14
+replace regid="TCD.18_1" if region==15
+replace regid="TCD.20_1" if region==16
+replace regid="TCD.23_1" if region==17
+replace regid="TCD.22_1" if region==18
+replace regid="TCD.1_1" if region==19
+replace regid="TCD.6_1" if region==20
+replace regid="TCD.19_1" if region==21
+replace regid="TCD.5_1" if region==23
 
 *Save
-keep sex location region regid weight wealth poor medicaltreatment fsec remotelearning teacher govtsupport
+keep sex location region regid weight wealth poor medicaltreatment fsec remotelearning teacher govtsupport incomeloss
 save "prep\TCD_wb_r1.dta", replace

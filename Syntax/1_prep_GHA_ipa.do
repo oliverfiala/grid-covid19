@@ -59,6 +59,10 @@ gen govtsupport=1
 replace govtsupport=0 if net3_0==1
 replace govtsupport=. if net3__99==1 | net3__88==1
 
+gen incomeloss=.	//Over the past 7 days, compared to before the government closed the schools/mid-March 2020
+replace incomeloss=1 if inc9==3 | inc9==4
+replace incomeloss=0 if inc9==1 | inc9==2
+
 *Regional attribution: N/A due to missing province labels
 gen regid=""
 replace regid="GH.AHA" if region==1
@@ -79,5 +83,5 @@ replace regid="GH.WES" if region==15
 replace regid="GH.WEN" if region==16
 
 *Save
-keep sex location region regid wealth healthseeking fsec remotelearning* cashtransfer* govtsupport
+keep sex location region regid wealth healthseeking fsec remotelearning* cashtransfer* govtsupport incomeloss
 save "prep\GHA_ipa_r1.dta", replace
