@@ -65,11 +65,11 @@ ren source sr
 replace sr="wb_dashboard" if sr=="wb" & wb_dashboard==1
 drop pop* sp_urb_totl_in_zs _* wb_dashboard
 
-export delimited "dat/grid_covid19.csv", replace nolabel
+export delimited "dat/grid_covid19_disagg.csv", replace nolabel
 export delimited "C:\Users\OFiala\OneDrive - Save the Children UK\GRID local\Tableau\tableau_covid19.csv", replace nolabel
 
 keep if last==1 & group=="all"
 drop group* regid
 ren country country_national
-export delimited "dat/tableau_covid19_national.csv", replace nolabel
+export delimited "dat/grid_covid19_national.csv", replace nolabel
 export delimited "C:\Users\OFiala\OneDrive - Save the Children UK\GRID local\Tableau\tableau_covid19_national.csv", replace nolabel
