@@ -3,7 +3,7 @@ cd "S:\Advocacy Division\GPAR Department\Inclusive Development\Research\COVID-19
 
 *Import data from World Bank COVID-19 High-Frequency Monitoring Dashboard
 import excel using "http://pubdocs.worldbank.org/en/852181605043954639/COVID-19-Dashboard-Data-Latest.xlsx", sheet("2. Harmonized Indicators") firstrow case(lower) clear
-keep if gender=="All" & urbanrural=="National" & industry=="All"
+keep if /*gender=="All" & */urbanrural=="National" & industry=="All"
 drop if incomegroup=="High income"
 ren code countrycode
 gen round=substr(wave,-1,.)

@@ -2,14 +2,19 @@
 cd "S:\Advocacy Division\GPAR Department\Inclusive Development\Research\COVID-19\"
 
 
-*--- ROUNDS 1-5 ---
+*--- ROUNDS 1-6 ---
 
-forvalues r=1/5 {
+forvalues r=1/6 {
 use "source\wb\ETH\r`r'_wb_lsms_hfpm_hh_survey_public_microdata.dta", clear
 gen round=`r'
 
 *Weights
-rename phw`r' weight
+if `r'==6 {
+	gen weight=1
+}
+else {
+	rename phw`r' weight
+}
 
 *Prepare dataset by renaming & creating variables on interest
 rename cs1_region region
@@ -50,27 +55,30 @@ if `r'==1 | `r'==2 {
 	rename ac4_2_edu remotelearning
 	replace remotelearning=. if remotelearning==-99 | remotelearning==-98
 }
-else {
+if `r'==3 | `r'==4 | `r'==5 {
 	rename ac4a_pri_child remotelearning_primary
 	rename ac4b_sec_child remotelearning_secondary
 	replace remotelearning_primary=. if remotelearning_primary==-99 | remotelearning_primary==-98
 	replace remotelearning_secondary=. if remotelearning_secondary==-99 | remotelearning_secondary==-98
 }
+if `r'==6 {
+	gen remotelearning=.
+}
 
-*Social protection	//Past four weeks
+*Social protection	
 if `r'==1 {
-	gen govtsupport=0
+	gen govtsupport=0 			//R1 assistance from the government over the past year
 	replace govtsupport=1 if lc1_gov==1 & lc2_gov_chg==1
 }
 else {
-	rename lc1_gov govtsupport		//R1 assistance from the government over the past year
+	rename lc1_gov govtsupport		//Past four weeks
 	replace govtsupport=. if govtsupport==-99
+}
 	rename as1_assist_type_3 cashtransfer
 	rename lc1_ngo ngosupport
-	gen assistance=1	//assistance in food, cash, or other from government, NGO, or other over the past 4 weeks
+	gen assistance=1	//assistance in food, cash, or other from government, NGO, or other since outbreak (R1)/over the past 4 weeks (R2-6)
 	replace assistance=0 if as1_assist_type=="0"
 	replace assistance=. if as1_assist_type=="-98" | as1_assist_type=="-99"
-}
 
 *Regional attribution
 gen regid=""

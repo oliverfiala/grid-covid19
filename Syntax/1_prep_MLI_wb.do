@@ -1,6 +1,7 @@
 *Set working directory
 cd "S:\Advocacy Division\GPAR Department\Inclusive Development\Research\COVID-19\"
 
+
 *--- ROUNDS 1-5 ---
 
 forvalues r=1/5 {
@@ -90,6 +91,8 @@ if `r'!=4 & `r'!=5 {
 }
 if `r'==1 | `r'==2 {
 	gen medicaltreatment=.
+	replace medicaltreatment=1 if s04q04==1
+	replace medicaltreatment=0 if s04q04==2
 }
 
 *Education
