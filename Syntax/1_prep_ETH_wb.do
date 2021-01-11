@@ -9,12 +9,7 @@ use "source\wb\ETH\r`r'_wb_lsms_hfpm_hh_survey_public_microdata.dta", clear
 gen round=`r'
 
 *Weights
-if `r'==6 {
-	gen weight=1
-}
-else {
-	rename phw`r' weight
-}
+rename phw`r' weight
 
 *Prepare dataset by renaming & creating variables on interest
 rename cs1_region region
