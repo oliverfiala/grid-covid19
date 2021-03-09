@@ -1,152 +1,168 @@
 countrycode,sr,round,indicator,value,ss,se,month,year,disagreggation,last,country_national,iso2,sp_pop_totl,regioncode,regionname,theme,abs
-KHM,wb_dashboard,2,healthseeking,.48325348,326,,8,2020,0,1,Cambodia,KH,16719000,EAS,East Asia and Pacific,hn,53256.473
-CRI,wb_dashboard,3,remotelearning,3.2738953,347,,8,2020,0,1,Costa Rica,CR,5094000,LCN,Latin America and Caribbean,ed,42673.129
-PHL,ipa,1,fsec,35.400143,1387,1.2845076,,,1,1,Philippines,PH,109581000,EAS,East Asia and Pacific,hn,13891683
-IND,yl,1,schoolreturn,19.892792,1679,.97451317,,,1,1,India (Andhra Pradesh & Telangana),IN,1380004000,SAS,South Asia,ed,63669644
-GTM,wb_dashboard,3,remotelearning,9.349823,445,,8,2020,0,1,Guatemala,GT,16918000,LCN,Latin America and Caribbean,ed,475275.16
-ETH,wb,6,fsec,44.774418,2701,.95698082,,,1,1,Ethiopia,ET,114964000,SSF,Sub-Saharan Africa,hn,24084270
-MLI,wb,4,fsec,14.991341,1901,.81898326,,,1,1,Mali,ML,20251000,SSF,Sub-Saharan Africa,hn,1763967.1
-BFA,wb,3,healthseeking,4.5839157,1132,.62186754,,,1,1,Burkina Faso,BF,20903000,SSF,Sub-Saharan Africa,hn,603959.75
-KEN,wb,2,healthseeking,5.3833923,864,.76825666,8,2020,1,1,Kenya,KE,53771000,SSF,Sub-Saharan Africa,hn,1316209.1
-UGA,wb,1,remotelearning,41.074707,1733,1.1821271,6,2020,1,1,Uganda,UG,45741000,SSF,Sub-Saharan Africa,ed,6785890.5
-SLV,wb_dashboard,3,remotelearning,6.7806625,386,,8,2020,0,1,El Salvador,SV,6486000,LCN,Latin America and Caribbean,ed,101451.32
+ZWE,wb_dashboard,1,govtsupport,88.683807,1747,,6,2020,0,1,Zimbabwe,ZW,14863000,SSF,Sub-Saharan Africa,sp,6424880
+BTN,wb_dashboard,1,govtsupport,83.074471,1484,,9,2020,0,1,Bhutan,BT,772000,SAS,South Asia,sp,193932.36
+PRY,wb_dashboard,1,govtsupport,57.67654,715,,6,2020,0,1,Paraguay,PY,7133000,LCN,Latin America and Caribbean,sp,1416162.1
+KHM,wb,3,fsec,33.865704,481,2.1600947,,,1,1,Cambodia,KH,16719000,EAS,East Asia and Pacific,hn,2049240.5
+ECU,wb_dashboard,1,govtsupport,87.741959,1227,,5,2020,0,1,Ecuador,EC,17643000,LCN,Latin America and Caribbean,sp,5059802.5
 TUN,wb_dashboard,2,healthseeking,18.661766,183,,5,2020,0,1,Tunisia,TN,11819000,MEA,Middle East and North Africa,hn,624002.81
-KEN,wb,2,schoolreturn,4.4020996,2469,.41293475,8,2020,1,1,Kenya,KE,53771000,SSF,Sub-Saharan Africa,ed,766188.63
-SEN,wb_dashboard,1,remotelearning,45.852345,1034,,5,2020,0,1,Senegal,SN,16744000,SSF,Sub-Saharan Africa,ed,2572077.3
-COL,ipa,1,govtsupport,72.093025,1505,1.1565892,,,1,1,Colombia,CO,50883000,LCN,Latin America and Caribbean,sp,9949247
-NGA,wb,4,fsec,80.351723,1789,.93967158,8,2020,1,1,Nigeria,NG,206140000,SSF,Sub-Saharan Africa,hn,98111728
-UGA,wb,3,cashtransfer_delay,8.9741154,159,2.2737868,,,1,1,Uganda,UG,45741000,SSF,Sub-Saharan Africa,sp,2820925.8
-ETH,wb,6,govtsupport,97.756142,2694,.28539851,,,1,1,Ethiopia,ET,114964000,SSF,Sub-Saharan Africa,sp,52583272
-IND,yl,1,fsec,16.33548,21891,.24986978,,,1,1,India (Andhra Pradesh & Telangana),IN,1380004000,SAS,South Asia,hn,71376800
-NGA,wb,4,healthseeking,10.119888,700,1.1407253,8,2020,1,1,Nigeria,NG,206140000,SSF,Sub-Saharan Africa,hn,12212407
-MEX,ipa,1,healthseeking,33.383686,1324,1.2965149,,,1,1,Mexico,MX,128933000,LCN,Latin America and Caribbean,hn,13370890
-PRY,wb_dashboard,3,healthseeking,14.130219,160,,8,2020,0,1,Paraguay,PY,7133000,LCN,Latin America and Caribbean,hn,474456.91
-KHM,wb_dashboard,1,govtsupport,90.441521,700,,5,2020,0,1,Cambodia,KH,16719000,EAS,East Asia and Pacific,sp,5472688
-TUN,wb_dashboard,5,remotelearning,4.4659348,352,,10,2020,0,1,Tunisia,TN,11819000,MEA,Middle East and North Africa,ed,104484.83
-MLI,wb,5,healthseeking,2.4579773,1346,.42220506,,,1,1,Mali,ML,20251000,SSF,Sub-Saharan Africa,hn,633352.38
-GHA,ipa,1,healthseeking,10.363973,1621,.7572633,,,1,1,Ghana,GH,31073000,SSF,Sub-Saharan Africa,hn,1394488.3
-KHM,wb_dashboard,2,remotelearning,41.522884,340,,8,2020,0,1,Cambodia,KH,16719000,EAS,East Asia and Pacific,ed,1773900
-LCA,wb_dashboard,1,govtsupport,87.907349,1093,,5,2020,0,1,St Lucia,LC,184000,LCN,Latin America and Caribbean,sp,35642.914
-MDG,wb_dashboard,1,healthseeking,11.553535,158,,6,2020,0,1,Madagascar,MG,27691000,SSF,Sub-Saharan Africa,hn,1494887.6
-MDG,wb_dashboard,1,govtsupport,98.589409,1240,,6,2020,0,1,Madagascar,MG,27691000,SSF,Sub-Saharan Africa,sp,12756276
-MEX,ipa,1,govtsupport,91.930618,1326,.74824232,,,1,1,Mexico,MX,128933000,LCN,Latin America and Caribbean,sp,36820204
-MEX,ipa,1,fsec,29.464958,1327,1.2519403,,,1,1,Mexico,MX,128933000,LCN,Latin America and Caribbean,hn,11801355
-BFA,wb,3,fsec,53.84322,1419,1.3238695,,,1,1,Burkina Faso,BF,20903000,SSF,Sub-Saharan Africa,hn,5765590.5
-LCA,wb_dashboard,1,remotelearning,7.1464233,486,,5,2020,0,1,St Lucia,LC,184000,LCN,Latin America and Caribbean,ed,2123.917
-DJI,wb,1,healthseeking,37.183674,262,2.9915216,7,2020,1,1,Djibouti,DJ,988000,MEA,Middle East and North Africa,hn,126394.38
-COD,wb_dashboard,1,remotelearning,46.834801,732,,6,2020,0,1,"Congo, Dem Rep",CD,89561000,SSF,Sub-Saharan Africa,ed,14566279
-COL,ipa,1,fsec,58.583836,1497,1.2735267,,,1,1,Colombia,CO,50883000,LCN,Latin America and Caribbean,hn,8084902
-VNM,wb,1,govtsupport,96.001175,6213,.24859285,6,2020,1,1,Vietnam,VN,97339000,EAS,East Asia and Pacific,sp,25445952
-UZB,wb_dashboard,3,remotelearning,27.469894,851,,6,2020,0,1,Uzbekistan,UZ,34074000,ECS,Europe and Central Asia,ed,2124232
-RWA,ipa,1,cashtransfer_delay,21.73913,46,6.1487546,,,1,1,Rwanda,RW,12952000,SSF,Sub-Saharan Africa,sp,1293002.4
-BGR,wb_dashboard,1,remotelearning,0,308,,7,2020,0,1,Bulgaria,BG,6923000,ECS,Europe and Central Asia,ed,0
-MLI,wb,3,govtsupport,94.406303,1897,.52775323,,,1,1,Mali,ML,20251000,SSF,Sub-Saharan Africa,sp,11179974
-PRY,wb_dashboard,3,govtsupport,78.71582,457,,8,2020,0,1,Paraguay,PY,7133000,LCN,Latin America and Caribbean,sp,1932750.5
-MWI,wb,4,healthseeking,1.0960312,1328,.28581354,,,1,1,Malawi,MW,19130000,SSF,Sub-Saharan Africa,hn,192499.53
-VNM,wb,1,fsec,33.216702,6213,.59758055,6,2020,1,1,Vietnam,VN,97339000,EAS,East Asia and Pacific,hn,8804378
-MLI,wb,1,remotelearning,75.372429,1249,1.2195785,6,2020,1,1,Mali,ML,20251000,SSF,Sub-Saharan Africa,ed,5521372.5
-MWI,wb,3,fsec,77.273033,1624,1.0402206,,,1,1,Malawi,MW,19130000,SSF,Sub-Saharan Africa,hn,7399037.5
-IND,yl,1,govtsupport,0,20192,0,,,0,1,India (Andhra Pradesh & Telangana),IN,1380004000,SAS,South Asia,sp,0
-SLE,ipa,1,remotelearning,21.965317,865,1.4084963,,,1,1,Sierra Leone,SL,7977000,SSF,Sub-Saharan Africa,ed,570970.19
-NGA,wb,4,schoolreturn,4.7702789,1039,.66154504,8,2020,1,1,Nigeria,NG,206140000,SSF,Sub-Saharan Africa,ed,3307066.8
-PRY,wb_dashboard,3,remotelearning,6.5597992,269,,8,2020,0,1,Paraguay,PY,7133000,LCN,Latin America and Caribbean,ed,115075.93
-TCD,wb,1,healthseeking,23.596962,831,1.4738196,6,2020,1,1,Chad,TD,16426000,SSF,Sub-Saharan Africa,hn,2073816.1
-NGA,wb,5,remotelearning,37.485271,952,1.5697527,,,1,1,Nigeria,NG,206140000,SSF,Sub-Saharan Africa,ed,25987220
-CIV,ipa,1,fsec,53.030304,1320,1.3741956,,,1,1,Cote d'Ivoire,CI,26378000,SSF,Sub-Saharan Africa,hn,6751531.5
-LAO,wb_dashboard,1,healthseeking,2.7624283,388,,7,2020,0,1,Lao PDR,LA,7276000,EAS,East Asia and Pacific,hn,76059.539
-MWI,wb,3,govtsupport,98.929398,1624,.25545686,,,1,1,Malawi,MW,19130000,SSF,Sub-Saharan Africa,sp,9472675
-PNG,wb_dashboard,1,healthseeking,21.046753,1258,,6,2020,0,1,Papua New Guinea,PG,8947000,EAS,East Asia and Pacific,hn,780426.88
-CIV,ipa,1,schoolreturn,20.030121,664,1.5543479,,,1,1,Cote d'Ivoire,CI,26378000,SSF,Sub-Saharan Africa,ed,1722642.3
-ZMB,ipa,1,fsec,47.682117,906,1.6602694,,,1,1,Zambia,ZM,18384000,SSF,Sub-Saharan Africa,hn,4485801
-IND,yl,1,remotelearning,74.19175,1794,1.0333964,,,1,1,India (Andhra Pradesh & Telangana),IN,1380004000,SAS,South Asia,ed,237460992
-SSD,wb_dashboard,1,healthseeking,14.49044,628,,6,2020,0,1,South Sudan,SS,11194000,SSF,Sub-Saharan Africa,hn,777488.94
-TJK,wb_dashboard,2,remotelearning,65.91275,460,,5,2020,0,1,Tajikistan,TJ,9538000,ECS,Europe and Central Asia,ed,1773136.8
-COD,wb_dashboard,1,govtsupport,73.875168,1020,,6,2020,0,1,"Congo, Dem Rep",CD,89561000,SSF,Sub-Saharan Africa,sp,34668760
-DJI,wb,1,govtsupport,66.09346,1486,1.2284508,7,2020,1,1,Djibouti,DJ,988000,MEA,Middle East and North Africa,sp,224664.23
-CIV,ipa,1,healthseeking,13.601824,1316,.94533986,,,1,1,Cote d'Ivoire,CI,26378000,SSF,Sub-Saharan Africa,hn,1731710.6
-MNG,wb_dashboard,1,remotelearning,26.555046,634,,5,2020,0,1,Mongolia,MN,3278000,EAS,East Asia and Pacific,ed,206544.63
-GAB,wb_dashboard,1,govtsupport,59.329449,1630,,5,2020,0,1,Gabon,GA,2226000,SSF,Sub-Saharan Africa,sp,562683.44
-ECU,wb_dashboard,3,govtsupport,96.931007,853,,7,2020,0,1,Ecuador,EC,17643000,LCN,Latin America and Caribbean,sp,5589706
-CIV,ipa,1,remotelearning,20.897156,914,1.3455637,,,1,1,Cote d'Ivoire,CI,26378000,SSF,Sub-Saharan Africa,ed,1797209.5
-KEN,wb,2,govtsupport,98.262802,4457,.19572507,8,2020,1,1,Kenya,KE,53771000,SSF,Sub-Saharan Africa,sp,26367420
-PER,yl,1,fsec,16.003164,15172,.29766467,,,1,1,Peru,PE,32972000,LCN,Latin America and Caribbean,hn,1537585.5
-PER,yl,1,remotelearning,10.904259,752,1.1373824,,,1,1,Peru,PE,32972000,LCN,Latin America and Caribbean,ed,738735.63
-VNM,wb,1,schoolreturn,1.7411118,3405,.2241838,6,2020,1,1,Vietnam,VN,97339000,EAS,East Asia and Pacific,ed,324080.19
-LAO,wb_dashboard,1,remotelearning,75.703461,1328,,7,2020,0,1,Lao PDR,LA,7276000,EAS,East Asia and Pacific,ed,1481116.3
-MWI,wb,2,remotelearning,76.298729,1162,1.2480396,,,1,1,Malawi,MW,19130000,SSF,Sub-Saharan Africa,ed,5074814.5
-ZMB,ipa,1,healthseeking,9.2503986,1254,.81851578,,,1,1,Zambia,ZM,18384000,SSF,Sub-Saharan Africa,hn,870251.81
-MEX,ipa,1,schoolreturn,13.138687,411,1.6683887,,,1,1,Mexico,MX,128933000,LCN,Latin America and Caribbean,ed,3822494.3
-RWA,ipa,1,remotelearning,18.375496,751,1.4141622,,,1,1,Rwanda,RW,12952000,SSF,Sub-Saharan Africa,ed,746542.38
-ZMB,ipa,1,remotelearning,42.01878,852,1.692001,,,1,1,Zambia,ZM,18384000,SSF,Sub-Saharan Africa,ed,2714946
-SEN,wb_dashboard,1,healthseeking,25.417725,663,,5,2020,0,1,Senegal,SN,16744000,SSF,Sub-Saharan Africa,hn,2090561.9
-SLE,ipa,1,govtsupport,91.871162,1304,.75706214,,,1,1,Sierra Leone,SL,7977000,SSF,Sub-Saharan Africa,sp,3452580.8
-SLE,ipa,1,healthseeking,4.9192929,1301,.59982681,,,1,1,Sierra Leone,SL,7977000,SSF,Sub-Saharan Africa,hn,184870.38
-VNM,wb,1,healthseeking,3.8053131,1871,.44243541,6,2020,1,1,Vietnam,VN,97339000,EAS,East Asia and Pacific,hn,1008631.6
-KEN,wb,2,fsec,34.804188,4457,.713597,8,2020,1,1,Kenya,KE,53771000,SSF,Sub-Saharan Africa,hn,9339207
-ETH,wb,6,healthseeking,7.2941208,707,.9786734,,,1,1,Ethiopia,ET,114964000,SSF,Sub-Saharan Africa,hn,4866548.5
-VNM,wb,1,remotelearning,21.159264,3356,.70514643,6,2020,1,1,Vietnam,VN,97339000,EAS,East Asia and Pacific,ed,3938459.5
-TCD,wb,1,fsec,87.95195,1748,.77881563,6,2020,1,1,Chad,TD,16426000,SSF,Sub-Saharan Africa,hn,7729646.5
-UGA,wb,3,govtsupport,93.243683,2147,.54181361,,,1,1,Uganda,UG,45741000,SSF,Sub-Saharan Africa,sp,22673962
-KEN,wb,2,remotelearning,20.838554,2960,.74665189,8,2020,1,1,Kenya,KE,53771000,SSF,Sub-Saharan Africa,ed,3988045
-SSD,wb_dashboard,1,remotelearning,68.008476,944,,6,2020,0,1,South Sudan,SS,11194000,SSF,Sub-Saharan Africa,ed,2487844
-UGA,wb,3,healthseeking,10.263855,1182,.88310832,,,1,1,Uganda,UG,45741000,SSF,Sub-Saharan Africa,hn,2495850
-BGR,wb_dashboard,1,healthseeking,7.4293518,305,,7,2020,0,1,Bulgaria,BG,6923000,ECS,Europe and Central Asia,hn,90286.383
-BOL,wb_dashboard,3,healthseeking,24.976074,217,,7,2020,0,1,Bolivia,BO,11673000,LCN,Latin America and Caribbean,hn,1384061.8
-SLE,ipa,1,fsec,53.023254,1290,1.3901069,,,1,1,Sierra Leone,SL,7977000,SSF,Sub-Saharan Africa,hn,1992650
-PER,yl,1,schoolreturn,24.58403,2404,.87837768,,,1,1,Peru,PE,32972000,LCN,Latin America and Caribbean,ed,1665505.1
-TJK,wb_dashboard,2,govtsupport,98.31324,661,,5,2020,0,1,Tajikistan,TJ,9538000,ECS,Europe and Central Asia,sp,3978616
-GTM,wb_dashboard,3,govtsupport,89.500946,636,,8,2020,0,1,Guatemala,GT,16918000,LCN,Latin America and Caribbean,sp,6510703
-NGA,wb,4,govtsupport,95.858032,1789,.47123116,8,2020,1,1,Nigeria,NG,206140000,SSF,Sub-Saharan Africa,sp,98988064
-ZMB,ipa,1,govtsupport,97.169815,1272,.4651581,,,1,1,Zambia,ZM,18384000,SSF,Sub-Saharan Africa,sp,9141466
-ZMB,ipa,1,schoolreturn,21.413506,948,1.3330389,,,1,1,Zambia,ZM,18384000,SSF,Sub-Saharan Africa,ed,1383584
-LCA,wb_dashboard,1,healthseeking,23.347656,176,,5,2020,0,1,St Lucia,LC,184000,LCN,Latin America and Caribbean,hn,9466.541
-TCD,wb,1,remotelearning,84.572113,1256,1.0196354,6,2020,1,1,Chad,TD,16426000,SSF,Sub-Saharan Africa,ed,4954279
-SLV,wb_dashboard,3,healthseeking,11.209816,201,,8,2020,0,1,El Salvador,SV,6486000,LCN,Latin America and Caribbean,hn,247062.45
-HND,wb_dashboard,3,remotelearning,14.342781,348,,8,2020,0,1,Honduras,HN,9905000,LCN,Latin America and Caribbean,ed,378209.97
-PHL,ipa,1,schoolreturn,24.482338,821,1.5015638,,,1,1,Philippines,PH,109581000,EAS,East Asia and Pacific,ed,7008202
-DOM,wb_dashboard,3,govtsupport,70.013199,667,,8,2020,0,1,Dominican Republic,DO,10848000,LCN,Latin America and Caribbean,sp,2488233.5
-UZB,wb_dashboard,5,govtsupport,95.052528,1513,,8,2020,0,1,Uzbekistan,UZ,34074000,ECS,Europe and Central Asia,sp,10612218
-CRI,wb_dashboard,3,govtsupport,67.427727,658,,8,2020,0,1,Costa Rica,CR,5094000,LCN,Latin America and Caribbean,sp,890005.38
-MNG,wb_dashboard,1,govtsupport,31.146988,1333,,5,2020,0,1,Mongolia,MN,3278000,EAS,East Asia and Pacific,sp,359205.13
-ETH,wb,5,remotelearning,82.619194,1322,1.0426152,,,1,1,Ethiopia,ET,114964000,SSF,Sub-Saharan Africa,ed,30568080
-GAB,wb_dashboard,1,remotelearning,51.568695,715,,5,2020,0,1,Gabon,GA,2226000,SSF,Sub-Saharan Africa,ed,323866.38
-ECU,wb_dashboard,3,remotelearning,3.9862595,459,,7,2020,0,1,Ecuador,EC,17643000,LCN,Latin America and Caribbean,ed,277815.06
-CRI,wb_dashboard,3,healthseeking,4.85215,210,,8,2020,0,1,Costa Rica,CR,5094000,LCN,Latin America and Caribbean,hn,62200.309
-RWA,ipa,1,healthseeking,13.630229,1482,.89156896,,,1,1,Rwanda,RW,12952000,SSF,Sub-Saharan Africa,hn,810700.25
-DOM,wb_dashboard,3,remotelearning,21.462891,83,,8,2020,0,1,Dominican Republic,DO,10848000,LCN,Latin America and Caribbean,ed,547544.13
-COD,wb_dashboard,1,healthseeking,12.598785,543,,6,2020,0,1,"Congo, Dem Rep",CD,89561000,SSF,Sub-Saharan Africa,hn,5912464
-HND,wb_dashboard,3,healthseeking,8.4725266,145,,8,2020,0,1,Honduras,HN,9905000,LCN,Latin America and Caribbean,hn,340071.28
-UZB,wb_dashboard,5,healthseeking,26.518425,100,,8,2020,0,1,Uzbekistan,UZ,34074000,ECS,Europe and Central Asia,hn,8224087.5
-DJI,wb,1,remotelearning,14.438736,660,1.3691798,7,2020,1,1,Djibouti,DJ,988000,MEA,Middle East and North Africa,ed,34762.266
-NGA,wb,3,cashtransfer_delay,15.02254,103,3.5377202,7,2020,1,1,Nigeria,NG,206140000,SSF,Sub-Saharan Africa,sp,15513068
-IDN,wb_dashboard,1,govtsupport,29.541168,4338,,5,2020,0,1,Indonesia,ID,273524000,EAS,East Asia and Pacific,sp,25090434
-PHL,ipa,1,govtsupport,10.943123,1389,.83793372,,,1,1,Philippines,PH,109581000,EAS,East Asia and Pacific,sp,4294287.5
-COL,ipa,1,remotelearning,3.8202209,445,.909693,,,1,1,Colombia,CO,50883000,LCN,Latin America and Caribbean,ed,385455.28
-BGR,wb_dashboard,1,govtsupport,94.198601,1510,,7,2020,0,1,Bulgaria,BG,6923000,ECS,Europe and Central Asia,sp,1144763.6
-SLV,wb_dashboard,3,govtsupport,64.274521,604,,8,2020,0,1,El Salvador,SV,6486000,LCN,Latin America and Caribbean,sp,1332026.5
-COL,ipa,1,cashtransfer_delay,24.271845,309,2.4428945,,,1,1,Colombia,CO,50883000,LCN,Latin America and Caribbean,sp,3349652.5
-HND,wb_dashboard,3,govtsupport,88.847939,521,,8,2020,0,1,Honduras,HN,9905000,LCN,Latin America and Caribbean,sp,3246462
-PER,yl,1,govtsupport,47.126129,15032,.40715286,,,1,1,Peru,PE,32972000,LCN,Latin America and Caribbean,sp,4527882.5
-MEX,ipa,1,remotelearning,6.3636398,440,1.165045,,,1,1,Mexico,MX,128933000,LCN,Latin America and Caribbean,ed,1851400.9
-UGA,wb,3,fsec,24.337578,2147,.92632622,,,1,1,Uganda,UG,45741000,SSF,Sub-Saharan Africa,hn,5918141.5
-GHA,ipa,1,govtsupport,76.272224,1631,1.0537022,,,1,1,Ghana,GH,31073000,SSF,Sub-Saharan Africa,sp,10262544
-MWI,wb,4,schoolreturn,55.722092,1298,1.3792318,,,1,1,Malawi,MW,19130000,SSF,Sub-Saharan Africa,ed,3936713.3
-RWA,ipa,1,govtsupport,88.611862,1484,.82490087,,,1,1,Rwanda,RW,12952000,SSF,Sub-Saharan Africa,sp,5270466
-SSD,wb_dashboard,1,govtsupport,98.268753,1213,,6,2020,0,1,South Sudan,SS,11194000,SSF,Sub-Saharan Africa,sp,5272639.5
-BOL,wb_dashboard,3,remotelearning,22.187355,473,,7,2020,0,1,Bolivia,BO,11673000,LCN,Latin America and Caribbean,ed,709352.38
-TCD,wb,1,govtsupport,95.658058,164,1.5962797,6,2020,1,1,Chad,TD,16426000,SSF,Sub-Saharan Africa,sp,8406897
-PHL,ipa,1,cashtransfer_delay,38.28125,128,4.3132014,,,1,1,Philippines,PH,109581000,EAS,East Asia and Pacific,sp,15022284
-BFA,wb,2,remotelearning,25.573494,1264,1.2276008,7,2020,1,1,Burkina Faso,BF,20903000,SSF,Sub-Saharan Africa,ed,1850402.6
-CIV,ipa,1,govtsupport,96.003014,1326,.53814667,,,1,1,Cote d'Ivoire,CI,26378000,SSF,Sub-Saharan Africa,sp,12222584
-BFA,wb,3,govtsupport,93.154335,2013,.56298316,,,1,1,Burkina Faso,BF,20903000,SSF,Sub-Saharan Africa,sp,10100509
-GHA,ipa,1,remotelearning,40.909092,990,1.5634072,,,1,1,Ghana,GH,31073000,SSF,Sub-Saharan Africa,ed,3798702
-MDG,wb_dashboard,1,remotelearning,60.034855,838,,6,2020,0,1,Madagascar,MG,27691000,SSF,Sub-Saharan Africa,ed,5300694.5
-DOM,wb_dashboard,3,healthseeking,20.586853,264,,8,2020,0,1,Dominican Republic,DO,10848000,LCN,Latin America and Caribbean,hn,808178.25
 GHA,ipa,1,fsec,52.875694,1617,1.2417376,,,1,1,Ghana,GH,31073000,SSF,Sub-Saharan Africa,hn,7114505
+VNM,wb,1,remotelearning,21.159264,3356,.70514643,6,2020,1,1,Vietnam,VN,97339000,EAS,East Asia and Pacific,ed,3938459.5
+KHM,wb,3,healthseeking,0,300,0,,,1,1,Cambodia,KH,16719000,EAS,East Asia and Pacific,hn,0
+KHM,wb,3,remotelearning,8.0653229,215,1.8614172,,,1,1,Cambodia,KH,16719000,EAS,East Asia and Pacific,ed,344558.81
+BGR,wb_dashboard,1,govtsupport,94.198601,1510,,7,2020,0,1,Bulgaria,BG,6923000,ECS,Europe and Central Asia,sp,1144763.6
+NGA,wb,6,schoolreturn,.23435974,874,.16365321,,,1,1,Nigeria,NG,206140000,SSF,Sub-Saharan Africa,ed,162473.38
+SLE,ipa,1,healthseeking,4.9192929,1301,.59982681,,,1,1,Sierra Leone,SL,7977000,SSF,Sub-Saharan Africa,hn,184870.38
+ETH,wb,6,healthseeking,7.2941208,707,.9786734,10,2020,1,1,Ethiopia,ET,114964000,SSF,Sub-Saharan Africa,hn,4866548.5
+MEX,ipa,1,schoolreturn,13.138687,411,1.6683887,,,1,1,Mexico,MX,128933000,LCN,Latin America and Caribbean,ed,3822494.3
+PHL,ipa,1,govtsupport,10.943123,1389,.83793372,,,1,1,Philippines,PH,109581000,EAS,East Asia and Pacific,sp,4294287.5
 RWA,ipa,1,fsec,56,1475,1.2929199,,,1,1,Rwanda,RW,12952000,SSF,Sub-Saharan Africa,hn,3330774.3
-GTM,wb_dashboard,3,healthseeking,10.860039,170,,8,2020,0,1,Guatemala,GT,16918000,LCN,Latin America and Caribbean,hn,874030.25
-COL,ipa,1,healthseeking,43.455151,1505,1.2781836,,,1,1,Colombia,CO,50883000,LCN,Latin America and Caribbean,hn,5997057.5
-MNG,wb_dashboard,1,healthseeking,8.2423553,444,,5,2020,0,1,Mongolia,MN,3278000,EAS,East Asia and Pacific,hn,95055.625
-DJI,wb,1,fsec,25.663637,1486,1.1334348,7,2020,1,1,Djibouti,DJ,988000,MEA,Middle East and North Africa,hn,87235.578
+UZB,wb_dashboard,3,remotelearning,27.469894,851,,6,2020,0,1,Uzbekistan,UZ,34074000,ECS,Europe and Central Asia,ed,2124232
+LAO,wb_dashboard,1,healthseeking,2.7624283,388,,7,2020,0,1,Lao PDR,LA,7276000,EAS,East Asia and Pacific,hn,76059.539
+TCD,wb,1,fsec,87.95195,1748,.77881563,6,2020,1,1,Chad,TD,16426000,SSF,Sub-Saharan Africa,hn,7729646.5
+SSD,wb_dashboard,1,govtsupport,98.268753,1213,,6,2020,0,1,South Sudan,SS,11194000,SSF,Sub-Saharan Africa,sp,5272639.5
+UGA,wb,4,govtsupport,96.664185,12380,.16139542,,,1,1,Uganda,UG,45741000,SSF,Sub-Saharan Africa,sp,135538352
+SLV,wb_dashboard,1,govtsupport,51.464054,804,,6,2020,0,1,El Salvador,SV,6486000,LCN,Latin America and Caribbean,sp,1066542.1
+SSD,wb_dashboard,1,remotelearning,68.008476,944,,6,2020,0,1,South Sudan,SS,11194000,SSF,Sub-Saharan Africa,ed,2487844
+RWA,ipa,1,govtsupport,88.611862,1484,.82490087,,,1,1,Rwanda,RW,12952000,SSF,Sub-Saharan Africa,sp,5270466
+SEN,wb_dashboard,1,remotelearning,45.852345,1034,,5,2020,0,1,Senegal,SN,16744000,SSF,Sub-Saharan Africa,ed,2572077.3
+UGA,wb,4,schoolreturn,67.101151,1348,1.2801815,,,1,1,Uganda,UG,45741000,SSF,Sub-Saharan Africa,ed,11085680
+VNM,wb,1,govtsupport,96.001175,6213,.24859285,6,2020,1,1,Vietnam,VN,97339000,EAS,East Asia and Pacific,sp,25445952
+ARM,wb,1,healthseeking,13.112366,240,2.183336,,,1,1,Armenia,AM,2963000,ECS,Europe and Central Asia,hn,94590.117
+KEN,wb,2,healthseeking,5.3833923,864,.76825666,,,1,1,Kenya,KE,53771000,SSF,Sub-Saharan Africa,hn,1316209.1
+RWA,ipa,1,remotelearning,18.375496,751,1.4141622,,,1,1,Rwanda,RW,12952000,SSF,Sub-Saharan Africa,ed,746542.38
+MEX,ipa,1,govtsupport,91.930618,1326,.74824232,,,1,1,Mexico,MX,128933000,LCN,Latin America and Caribbean,sp,36820204
+PNG,wb_dashboard,1,healthseeking,21.046753,1258,,6,2020,0,1,Papua New Guinea,PG,8947000,EAS,East Asia and Pacific,hn,780426.88
+TCD,wb,1,govtsupport,95.658058,164,1.5962797,6,2020,1,1,Chad,TD,16426000,SSF,Sub-Saharan Africa,sp,8406897
+ZMB,ipa,1,govtsupport,97.169815,1272,.4651581,,,1,1,Zambia,ZM,18384000,SSF,Sub-Saharan Africa,sp,9141466
+NGA,wb,7,fsec,70.490845,1726,1.098121,,,1,1,Nigeria,NG,206140000,SSF,Sub-Saharan Africa,hn,83040296
+SLE,ipa,1,fsec,53.023254,1290,1.3901069,,,1,1,Sierra Leone,SL,7977000,SSF,Sub-Saharan Africa,hn,1992650
+CIV,ipa,1,schoolreturn,20.030121,664,1.5543479,,,1,1,Cote d'Ivoire,CI,26378000,SSF,Sub-Saharan Africa,ed,1722642.3
+AFG,wb_dashboard,1,healthseeking,25.110992,2768,,9,2020,0,1,Afghanistan,AF,38928000,SAS,South Asia,hn,4805484
+SLV,wb_dashboard,3,remotelearning,6.7806625,386,,8,2020,0,1,El Salvador,SV,6486000,LCN,Latin America and Caribbean,ed,101451.32
+DJI,wb,1,govtsupport,66.09346,1486,1.2284508,7,2020,1,1,Djibouti,DJ,988000,MEA,Middle East and North Africa,sp,224664.23
+TUN,wb_dashboard,5,remotelearning,4.4659348,352,,10,2020,0,1,Tunisia,TN,11819000,MEA,Middle East and North Africa,ed,104484.83
+VNM,wb,1,fsec,33.216702,6213,.59758055,6,2020,1,1,Vietnam,VN,97339000,EAS,East Asia and Pacific,hn,8804378
+GHA,ipa,1,govtsupport,76.272224,1631,1.0537022,,,1,1,Ghana,GH,31073000,SSF,Sub-Saharan Africa,sp,10262544
+BFA,wb,5,govtsupport,97.107666,3781,.27258691,,,1,1,Burkina Faso,BF,20903000,SSF,Sub-Saharan Africa,sp,19776826
+MLI,wb,1,remotelearning,75.372429,1249,1.2195785,6,2020,1,1,Mali,ML,20251000,SSF,Sub-Saharan Africa,ed,5521372.5
+GHA,ipa,1,remotelearning,40.909092,990,1.5634072,,,1,1,Ghana,GH,31073000,SSF,Sub-Saharan Africa,ed,3798702
+BFA,wb,5,healthseeking,2.0496368,1924,.32311112,,,1,1,Burkina Faso,BF,20903000,SSF,Sub-Saharan Africa,hn,458993.91
+PER,yl,1,govtsupport,47.126129,15032,.40715286,,,1,1,Peru,PE,32972000,LCN,Latin America and Caribbean,sp,4527882.5
+TCD,wb,1,healthseeking,23.596962,831,1.4738196,6,2020,1,1,Chad,TD,16426000,SSF,Sub-Saharan Africa,hn,2073816.1
+PHL,ipa,1,schoolreturn,24.482338,821,1.5015638,,,1,1,Philippines,PH,109581000,EAS,East Asia and Pacific,ed,7008202
+IDN,wb_dashboard,2,remotelearning,1.7161331,2703,,5,2020,0,1,Indonesia,ID,273524000,EAS,East Asia and Pacific,ed,1051569.1
+ZMB,ipa,1,schoolreturn,21.413506,948,1.3330389,,,1,1,Zambia,ZM,18384000,SSF,Sub-Saharan Africa,ed,1383584
+GTM,wb_dashboard,1,govtsupport,85.291046,806,,5,2020,0,1,Guatemala,GT,16918000,LCN,Latin America and Caribbean,sp,6097145.5
+PRY,wb_dashboard,3,healthseeking,14.130219,160,,8,2020,0,1,Paraguay,PY,7133000,LCN,Latin America and Caribbean,hn,474456.91
+GEO,wb,1,fsec,49.279083,1940,1.1353662,,,1,1,Georgia,GE,3711000,ECS,Europe and Central Asia,hn,462308.75
+NGA,wb,4,healthseeking,10.119888,700,1.1407253,8,2020,1,1,Nigeria,NG,206140000,SSF,Sub-Saharan Africa,hn,12212407
+NGA,wb,7,govtsupport,98.079453,1726,.33045116,,,1,1,Nigeria,NG,206140000,SSF,Sub-Saharan Africa,sp,101282024
+MLI,wb,4,fsec,14.991341,1901,.81898326,,,1,1,Mali,ML,20251000,SSF,Sub-Saharan Africa,hn,1763967.1
+UGA,wb,4,healthseeking,8.4748459,8026,.31089485,,,1,1,Uganda,UG,45741000,SSF,Sub-Saharan Africa,hn,13993343
+SLE,ipa,1,govtsupport,91.871162,1304,.75706214,,,1,1,Sierra Leone,SL,7977000,SSF,Sub-Saharan Africa,sp,3452580.8
+BFA,wb,5,fsec,23.299479,3776,.68804014,,,1,1,Burkina Faso,BF,20903000,SSF,Sub-Saharan Africa,hn,6639090
+MDG,wb_dashboard,1,healthseeking,11.553535,158,,6,2020,0,1,Madagascar,MG,27691000,SSF,Sub-Saharan Africa,hn,1494887.6
+KHM,wb,3,govtsupport,86.221786,113,3.2568367,,,1,1,Cambodia,KH,16719000,EAS,East Asia and Pacific,sp,7369505
+MWI,wb,5,schoolreturn,3.0072403,1233,.4865737,,,1,1,Malawi,MW,19130000,SSF,Sub-Saharan Africa,ed,201819.38
+SLV,wb_dashboard,3,healthseeking,11.209816,201,,8,2020,0,1,El Salvador,SV,6486000,LCN,Latin America and Caribbean,hn,247062.45
+UGA,wb,4,fsec,24.578981,12381,.38696155,,,1,1,Uganda,UG,45741000,SSF,Sub-Saharan Africa,hn,34466372
+UGA,wb,3,cashtransfer_delay,8.9741154,159,2.2737868,,,1,1,Uganda,UG,45741000,SSF,Sub-Saharan Africa,sp,2820925.8
+BTN,wb_dashboard,1,healthseeking,1.0338974,366,,9,2020,0,1,Bhutan,BT,772000,SAS,South Asia,hn,2413.5715
+NGA,wb,7,cashtransfer_delay,22.013567,57,5.5368242,,,1,1,Nigeria,NG,206140000,SSF,Sub-Saharan Africa,sp,22732372
+MNG,wb_dashboard,1,govtsupport,31.146988,1333,,5,2020,0,1,Mongolia,MN,3278000,EAS,East Asia and Pacific,sp,359205.13
+GAB,wb_dashboard,1,remotelearning,51.568695,715,,5,2020,0,1,Gabon,GA,2226000,SSF,Sub-Saharan Africa,ed,323866.38
+MWI,wb,5,govtsupport,98.709114,1588,.28335679,,,1,1,Malawi,MW,19130000,SSF,Sub-Saharan Africa,sp,9451582
+CIV,ipa,1,remotelearning,20.897156,914,1.3455637,,,1,1,Cote d'Ivoire,CI,26378000,SSF,Sub-Saharan Africa,ed,1797209.5
+MLI,wb,3,govtsupport,94.406303,1897,.52775323,,,1,1,Mali,ML,20251000,SSF,Sub-Saharan Africa,sp,11179974
+IND,yl,1,schoolreturn,19.892792,1679,.97451317,,,1,1,India (Andhra Pradesh & Telangana),IN,1380004000,SAS,South Asia,ed,63669644
+TCD,wb,1,remotelearning,84.572113,1256,1.0196354,6,2020,1,1,Chad,TD,16426000,SSF,Sub-Saharan Africa,ed,4954279
+MEX,ipa,1,healthseeking,33.383686,1324,1.2965149,,,1,1,Mexico,MX,128933000,LCN,Latin America and Caribbean,hn,13370890
+MDG,wb_dashboard,1,govtsupport,98.589409,1240,,6,2020,0,1,Madagascar,MG,27691000,SSF,Sub-Saharan Africa,sp,12756276
+DJI,wb,2,fsec,41.383347,3393,.84565926,10,2020,1,1,Djibouti,DJ,988000,MEA,Middle East and North Africa,hn,321193.03
+CIV,ipa,1,govtsupport,96.003014,1326,.53814667,,,1,1,Cote d'Ivoire,CI,26378000,SSF,Sub-Saharan Africa,sp,12222584
+DOM,wb_dashboard,3,healthseeking,20.586853,264,,8,2020,0,1,Dominican Republic,DO,10848000,LCN,Latin America and Caribbean,hn,808178.25
+LCA,wb_dashboard,1,govtsupport,87.907349,1093,,5,2020,0,1,St Lucia,LC,184000,LCN,Latin America and Caribbean,sp,35642.914
+MEX,ipa,1,remotelearning,6.3636398,440,1.165045,,,1,1,Mexico,MX,128933000,LCN,Latin America and Caribbean,ed,1851400.9
+MMR,wb_dashboard,4,remotelearning,62.946426,414,,10,2020,0,1,Myanmar,MM,54410000,EAS,East Asia and Pacific,ed,7812828.5
+MWI,wb,5,healthseeking,4.1566086,642,.7883544,,,1,1,Malawi,MW,19130000,SSF,Sub-Saharan Africa,hn,398003.03
+PHL,ipa,1,fsec,35.400143,1387,1.2845076,,,1,1,Philippines,PH,109581000,EAS,East Asia and Pacific,hn,13891683
+CRI,wb_dashboard,3,healthseeking,4.85215,210,,8,2020,0,1,Costa Rica,CR,5094000,LCN,Latin America and Caribbean,hn,62200.309
+MNG,wb_dashboard,1,remotelearning,26.555046,634,,5,2020,0,1,Mongolia,MN,3278000,EAS,East Asia and Pacific,ed,206544.63
+RWA,ipa,1,cashtransfer_delay,21.73913,46,6.1487546,,,1,1,Rwanda,RW,12952000,SSF,Sub-Saharan Africa,sp,1293002.4
+PHL,ipa,1,cashtransfer_delay,38.28125,128,4.3132014,,,1,1,Philippines,PH,109581000,EAS,East Asia and Pacific,sp,15022284
+ZMB,ipa,1,fsec,47.682117,906,1.6602694,,,1,1,Zambia,ZM,18384000,SSF,Sub-Saharan Africa,hn,4485801
+IND,yl,1,fsec,16.33548,21891,.24986978,,,1,1,India (Andhra Pradesh & Telangana),IN,1380004000,SAS,South Asia,hn,71376800
+LAO,wb_dashboard,1,remotelearning,75.703461,1328,,7,2020,0,1,Lao PDR,LA,7276000,EAS,East Asia and Pacific,ed,1481116.3
+PER,yl,1,fsec,16.003164,15172,.29766467,,,1,1,Peru,PE,32972000,LCN,Latin America and Caribbean,hn,1537585.5
+BOL,wb_dashboard,3,remotelearning,22.187355,473,,7,2020,0,1,Bolivia,BO,11673000,LCN,Latin America and Caribbean,ed,709352.38
 ECU,wb_dashboard,3,healthseeking,22.130707,316,,7,2020,0,1,Ecuador,EC,17643000,LCN,Latin America and Caribbean,hn,1276208.1
+CRI,wb_dashboard,1,govtsupport,68.303116,801,,5,2020,0,1,Costa Rica,CR,5094000,LCN,Latin America and Caribbean,sp,871416.63
+TJK,wb_dashboard,2,remotelearning,65.91275,460,,5,2020,0,1,Tajikistan,TJ,9538000,ECS,Europe and Central Asia,ed,1773136.8
+BGR,wb_dashboard,1,healthseeking,7.4293518,305,,7,2020,0,1,Bulgaria,BG,6923000,ECS,Europe and Central Asia,hn,90286.383
+IDN,wb_dashboard,1,govtsupport,29.541168,4338,,5,2020,0,1,Indonesia,ID,273524000,EAS,East Asia and Pacific,sp,25090434
+LCA,wb_dashboard,1,healthseeking,23.347656,176,,5,2020,0,1,St Lucia,LC,184000,LCN,Latin America and Caribbean,hn,9466.541
+COL,ipa,1,cashtransfer_delay,24.271845,309,2.4428945,,,1,1,Colombia,CO,50883000,LCN,Latin America and Caribbean,sp,3349652.5
+UGA,wb,4,remotelearning,67.785202,5122,.65300691,,,1,1,Uganda,UG,45741000,SSF,Sub-Saharan Africa,ed,33098496
+KEN,wb,2,fsec,34.804188,4457,.713597,,,1,1,Kenya,KE,53771000,SSF,Sub-Saharan Africa,hn,9339207
+DJI,wb,2,schoolreturn,7.6343918,2568,.52411848,10,2020,1,1,Djibouti,DJ,988000,MEA,Middle East and North Africa,ed,18380.332
+COL,ipa,1,fsec,58.583836,1497,1.2735267,,,1,1,Colombia,CO,50883000,LCN,Latin America and Caribbean,hn,8084902
+HND,wb_dashboard,1,govtsupport,70.987679,807,,6,2020,0,1,Honduras,HN,9905000,LCN,Latin America and Caribbean,sp,2593856.5
+ZWE,wb_dashboard,2,healthseeking,12.968262,280,,7,2020,0,1,Zimbabwe,ZW,14863000,SSF,Sub-Saharan Africa,hn,939512.31
+ZMB,ipa,1,remotelearning,42.01878,852,1.692001,,,1,1,Zambia,ZM,18384000,SSF,Sub-Saharan Africa,ed,2714946
+COL,ipa,1,remotelearning,3.8202209,445,.909693,,,1,1,Colombia,CO,50883000,LCN,Latin America and Caribbean,ed,385455.28
+BGD,wb_dashboard,1,govtsupport,84.092705,7603,,10,2020,0,1,Bangladesh,BD,164689000,SAS,South Asia,sp,44911416
+HND,wb_dashboard,3,healthseeking,8.4725266,145,,8,2020,0,1,Honduras,HN,9905000,LCN,Latin America and Caribbean,hn,340071.28
+PRY,wb_dashboard,3,remotelearning,6.5597992,269,,8,2020,0,1,Paraguay,PY,7133000,LCN,Latin America and Caribbean,ed,115075.93
+GEO,wb,1,govtsupport,13.343193,1961,.76807427,,,1,1,Georgia,GE,3711000,ECS,Europe and Central Asia,sp,125178.37
+SLE,ipa,1,remotelearning,21.965317,865,1.4084963,,,1,1,Sierra Leone,SL,7977000,SSF,Sub-Saharan Africa,ed,570970.19
+LCA,wb_dashboard,1,remotelearning,7.1464233,486,,5,2020,0,1,St Lucia,LC,184000,LCN,Latin America and Caribbean,ed,2123.917
+DOM,wb_dashboard,1,govtsupport,59.46431,807,,5,2020,0,1,Dominican Republic,DO,10848000,LCN,Latin America and Caribbean,sp,2113331.3
+ZWE,wb_dashboard,2,remotelearning,1.4739532,1087,,7,2020,0,1,Zimbabwe,ZW,14863000,SSF,Sub-Saharan Africa,ed,75868.164
+KEN,wb,2,remotelearning,20.838554,2960,.74665189,,,1,1,Kenya,KE,53771000,SSF,Sub-Saharan Africa,ed,3988045
+IND,yl,1,remotelearning,74.19175,1794,1.0333964,,,1,1,India (Andhra Pradesh & Telangana),IN,1380004000,SAS,South Asia,ed,237460992
+ETH,wb,5,remotelearning,82.619194,1322,1.0426152,9,2020,1,1,Ethiopia,ET,114964000,SSF,Sub-Saharan Africa,ed,30568080
+ETH,wb,6,fsec,44.774418,2701,.95698082,10,2020,1,1,Ethiopia,ET,114964000,SSF,Sub-Saharan Africa,hn,24084270
+KEN,wb,2,govtsupport,98.262802,4457,.19572507,,,1,1,Kenya,KE,53771000,SSF,Sub-Saharan Africa,sp,26367420
+MWI,wb,2,remotelearning,76.298729,1162,1.2480396,7,2020,1,1,Malawi,MW,19130000,SSF,Sub-Saharan Africa,ed,5074814.5
+BGD,wb_dashboard,1,healthseeking,17.340508,2998,,10,2020,0,1,Bangladesh,BD,164689000,SAS,South Asia,hn,9261050
+UZB,wb_dashboard,5,healthseeking,26.518425,100,,8,2020,0,1,Uzbekistan,UZ,34074000,ECS,Europe and Central Asia,hn,8224087.5
+SEN,wb_dashboard,1,healthseeking,25.417725,663,,5,2020,0,1,Senegal,SN,16744000,SSF,Sub-Saharan Africa,hn,2090561.9
+BOL,wb_dashboard,3,healthseeking,24.976074,217,,7,2020,0,1,Bolivia,BO,11673000,LCN,Latin America and Caribbean,hn,1384061.8
+CIV,ipa,1,fsec,53.030304,1320,1.3741956,,,1,1,Cote d'Ivoire,CI,26378000,SSF,Sub-Saharan Africa,hn,6751531.5
+CIV,ipa,1,healthseeking,13.601824,1316,.94533986,,,1,1,Cote d'Ivoire,CI,26378000,SSF,Sub-Saharan Africa,hn,1731710.6
+ETH,wb,6,govtsupport,97.756142,2694,.28539851,10,2020,1,1,Ethiopia,ET,114964000,SSF,Sub-Saharan Africa,sp,52583272
+MNG,wb_dashboard,1,healthseeking,8.2423553,444,,5,2020,0,1,Mongolia,MN,3278000,EAS,East Asia and Pacific,hn,95055.625
+COL,ipa,1,healthseeking,43.455151,1505,1.2781836,,,1,1,Colombia,CO,50883000,LCN,Latin America and Caribbean,hn,5997057.5
+MEX,ipa,1,fsec,29.464958,1327,1.2519403,,,1,1,Mexico,MX,128933000,LCN,Latin America and Caribbean,hn,11801355
+MDG,wb_dashboard,1,remotelearning,60.034855,838,,6,2020,0,1,Madagascar,MG,27691000,SSF,Sub-Saharan Africa,ed,5300694.5
+ECU,wb_dashboard,3,remotelearning,3.9862595,459,,7,2020,0,1,Ecuador,EC,17643000,LCN,Latin America and Caribbean,ed,277815.06
+PER,yl,1,schoolreturn,24.58403,2404,.87837768,,,1,1,Peru,PE,32972000,LCN,Latin America and Caribbean,ed,1665505.1
+GHA,ipa,1,healthseeking,10.363973,1621,.7572633,,,1,1,Ghana,GH,31073000,SSF,Sub-Saharan Africa,hn,1394488.3
+ZMB,ipa,1,healthseeking,9.2503986,1254,.81851578,,,1,1,Zambia,ZM,18384000,SSF,Sub-Saharan Africa,hn,870251.81
+DJI,wb,1,remotelearning,14.438736,660,1.3691798,7,2020,1,1,Djibouti,DJ,988000,MEA,Middle East and North Africa,ed,34762.266
+CRI,wb_dashboard,3,remotelearning,3.2738953,347,,8,2020,0,1,Costa Rica,CR,5094000,LCN,Latin America and Caribbean,ed,42673.129
+PER,yl,1,remotelearning,10.904259,752,1.1373824,,,1,1,Peru,PE,32972000,LCN,Latin America and Caribbean,ed,738735.63
+MLI,wb,5,healthseeking,2.4579773,1346,.42220506,,,1,1,Mali,ML,20251000,SSF,Sub-Saharan Africa,hn,633352.38
+VNM,wb,1,healthseeking,3.8053131,1871,.44243541,6,2020,1,1,Vietnam,VN,97339000,EAS,East Asia and Pacific,hn,1008631.6
+SSD,wb_dashboard,1,healthseeking,14.49044,628,,6,2020,0,1,South Sudan,SS,11194000,SSF,Sub-Saharan Africa,hn,777488.94
+NGA,wb,6,remotelearning,45.189571,1901,1.1417576,,,1,1,Nigeria,NG,206140000,SSF,Sub-Saharan Africa,ed,62557956
+IND,yl,1,govtsupport,0,20192,0,,,0,1,India (Andhra Pradesh & Telangana),IN,1380004000,SAS,South Asia,sp,0
+GTM,wb_dashboard,3,healthseeking,10.860039,170,,8,2020,0,1,Guatemala,GT,16918000,LCN,Latin America and Caribbean,hn,874030.25
+BGR,wb_dashboard,1,remotelearning,0,308,,7,2020,0,1,Bulgaria,BG,6923000,ECS,Europe and Central Asia,ed,0
+DOM,wb_dashboard,3,remotelearning,21.462891,83,,8,2020,0,1,Dominican Republic,DO,10848000,LCN,Latin America and Caribbean,ed,547544.13
+IDN,wb_dashboard,2,healthseeking,11.377213,1018,,5,2020,0,1,Indonesia,ID,273524000,EAS,East Asia and Pacific,hn,9663098
+KEN,wb,2,schoolreturn,4.4020996,2469,.41293475,,,1,1,Kenya,KE,53771000,SSF,Sub-Saharan Africa,ed,766188.63
+HND,wb_dashboard,3,remotelearning,14.342781,348,,8,2020,0,1,Honduras,HN,9905000,LCN,Latin America and Caribbean,ed,378209.97
 MEX,ipa,1,cashtransfer_delay,32.065216,184,3.4501474,,,1,1,Mexico,MX,128933000,LCN,Latin America and Caribbean,sp,12842814
+MWI,wb,5,fsec,71.45916,1589,1.1332797,,,1,1,Malawi,MW,19130000,SSF,Sub-Saharan Africa,hn,6842348
+DJI,wb,1,healthseeking,37.183674,262,2.9915216,7,2020,1,1,Djibouti,DJ,988000,MEA,Middle East and North Africa,hn,126394.38
+ARM,wb,1,schoolreturn,6.654747,938,.81422067,,,1,1,Armenia,AM,2963000,ECS,Europe and Central Asia,ed,34364.715
+RWA,ipa,1,healthseeking,13.630229,1482,.89156896,,,1,1,Rwanda,RW,12952000,SSF,Sub-Saharan Africa,hn,810700.25
+BFA,wb,5,remotelearning,28.153442,3401,.77131051,,,1,1,Burkina Faso,BF,20903000,SSF,Sub-Saharan Africa,ed,5481093.5
+GEO,wb,1,remotelearning,10.777824,712,1.1629664,,,1,1,Georgia,GE,3711000,ECS,Europe and Central Asia,ed,72189.758
+ARM,wb,1,remotelearning,2.255455,912,.49193108,,,1,1,Armenia,AM,2963000,ECS,Europe and Central Asia,ed,11647.034
+GTM,wb_dashboard,3,remotelearning,9.349823,445,,8,2020,0,1,Guatemala,GT,16918000,LCN,Latin America and Caribbean,ed,475275.16
+AFG,wb_dashboard,1,govtsupport,87.594681,5056,,9,2020,0,1,Afghanistan,AF,38928000,SAS,South Asia,sp,16762971
+VNM,wb,1,schoolreturn,1.7411118,3405,.2241838,6,2020,1,1,Vietnam,VN,97339000,EAS,East Asia and Pacific,ed,324080.19
+GAB,wb_dashboard,1,govtsupport,59.329449,1630,,5,2020,0,1,Gabon,GA,2226000,SSF,Sub-Saharan Africa,sp,562683.44
+COL,ipa,1,govtsupport,72.093025,1505,1.1565892,,,1,1,Colombia,CO,50883000,LCN,Latin America and Caribbean,sp,9949247
