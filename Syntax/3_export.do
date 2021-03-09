@@ -1,5 +1,5 @@
 *Set working directory
-cd "S:\Advocacy Division\GPAR Department\Inclusive Development\Research\COVID-19\"
+cd "T:\PAC\Research\COVID-19\"
 
 *Open Tabulation & identify relevant observations and surveys
 use "dat/tabulation.dta", clear
@@ -12,7 +12,7 @@ drop _*
 
 bysort countrycode: tab source									// identify countries in which more than one survey has been performed; keep more relevant ones
 drop if countrycode=="BFA" & source=="ipa"						// keep WB survey for BFA as it includes multiple rounds
-drop if countrycode=="CAF" & wb_dashboard==1					// missing information on timing of suevey in Central African Republic
+drop if countrycode=="CAF" & wb_dashboard==1					// missing information on timing of survey in Central African Republic
 drop if (countrycode=="VNM" | countrycode=="ETH") & source=="yl"
 
 *Reshape
@@ -26,7 +26,7 @@ drop _*
 
 *Merge with population estimates for 2020 (including country names and Iso2 codes) & keep only relevant indicators
 merge m:1 countrycode using "dat/population2020.dta", nogen keep(1 3)
-keep if group=="all" | group=="region" | group=="location" | group=="wealth" | group=="poor"
+keep if group=="all" | group=="region" | group=="location" | group=="wealth" | group=="poor" | group=="disability"
 drop if group=="wealth" & groupvalue!=1 & groupvalue!=5		// keep only poorest and richest quintiles
 drop if group=="region" & regid==""							// drop regions where not regid exists as those cannot be displayed in map
 drop if group=="region" & last!=1							// keep only latest value for regions (otherwise this creates an error in calculating worst/best region)
@@ -38,6 +38,10 @@ drop if countrycode=="MLI" & indicator=="schoolreturn"		// Schools had not been 
 replace disagreggation=0 if countrycode=="IND" & indicator=="govtsupport"	// no variation in government support in India
 drop if countrycode=="IND" & indicator=="govtsupport" & group!="all"
 replace country="India (Andhra Pradesh & Telangana)" if countrycode=="IND" & source=="yl"
+gen _count=1
+egen _nrgroups=sum(_count), by(countrycode source round indicator group)
+drop if group=="disability" & _nrgroups<2					// drop "no disability" if no data exist for group with disability
+drop _*
 
 *Adjust regional labels
 merge m:m regid using "dat/region_labels", keep(1 3) nogen
@@ -65,11 +69,27 @@ ren source sr
 replace sr="wb_dashboard" if sr=="wb" & wb_dashboard==1
 drop pop* sp_urb_totl_in_zs _* wb_dashboard
 
-export delimited "dat/grid_covid19_disagg.csv", replace nolabel
-export delimited "C:\Users\OFiala\OneDrive - Save the Children UK\GRID local\Tableau\tableau_covid19.csv", replace nolabel
+*Export disaggreagted data (visualisation 2)
+preserve
+	keep if last==1 & disagreggation==1
+	export delimited "dat/grid_covid19_disagg.csv", replace nolabel
+	export delimited "C:\Users\OFiala\OneDrive - Save the Children UK\GRID local\Tableau\tableau_covid19.csv", replace nolabel
+restore
 
-keep if last==1 & group=="all"
-drop group* regid
-ren country country_national
-export delimited "dat/grid_covid19_national.csv", replace nolabel
-export delimited "C:\Users\OFiala\OneDrive - Save the Children UK\GRID local\Tableau\tableau_covid19_national.csv", replace nolabel
+*Export trend data (visualisation 3)
+/*
+preserve
+	keep if trends=1 /* disagreggation==1*/
+	export delimited "dat/grid_covid19_trends.csv", replace nolabel
+	export delimited "C:\Users\OFiala\OneDrive - Save the Children UK\GRID local\Tableau\tableau_covid19_trends.csv", replace nolabel
+restore
+*/
+
+*Export national averages (visualisation 1)
+preserve
+	keep if last==1 & group=="all"
+	drop group* regid
+	ren country country_national
+	export delimited "dat/grid_covid19_national.csv", replace nolabel
+	export delimited "C:\Users\OFiala\OneDrive - Save the Children UK\GRID local\Tableau\tableau_covid19_national.csv", replace nolabel
+restore

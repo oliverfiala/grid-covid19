@@ -1,5 +1,5 @@
 *Set working directory
-cd "S:\Advocacy Division\GPAR Department\Inclusive Development\Research\COVID-19\"
+cd "T:\PAC\Research\COVID-19\"
 
 *Required programs
 which folders
@@ -8,7 +8,7 @@ which folders
 global indicators healthseeking fsec remotelearning remotelearning_primary remotelearning_secondary schoolreturn cashtransfer cashtransfer_delay govtsupport medicine medicaltreatment natalcare schoolattendance teacher fseccovid
 
 *Calculate group-specific rates for surveys/rounds/indicators (saved in folder /dat in working directory)
-fs "prep/*.dta"
+fs "prep/KHM*.dta"
 foreach file in `r(files)' {
 	use "prep/`file'", clear
 	gen countrycode=upper(substr("`file'",1,3))
@@ -88,27 +88,30 @@ foreach file in `r(files)' {
 		}
 	}
 	*Wealth
-	replace group="wealth" in 6/10
-	forvalue i=1/5 {
-		local j=6+`i'-1
-		replace groupvalue=`i' in `j'
-	}
-	replace grouplabel="Poorest 20%" if group=="wealth" & groupvalue==1
-	replace grouplabel="Richest 20%" if group=="wealth" & groupvalue==5
-	foreach ind of global indicators {
-		cap confirm var `ind'
-		if _rc==0 { 
-		qui sum `ind' if wealth!=.
-		if `r(N)'>25 {
-			levelsof wealth, local(wealth)
-			foreach i of local wealth {
-				local j=6+`i'-1
-				cap qui reg `ind' [aw=weight] if wealth==`i'
-				cap replace value`ind'=_b[_cons]*100 in `j'
-				cap replace se`ind'=_se[_cons]*100 in `j'
-				cap replace ss`ind'=e(N) in `j'
-			}
+	cap confirm var poor
+	if _rc==0 {
+		replace group="wealth" in 6/10
+		forvalue i=1/5 {
+			local j=6+`i'-1
+			replace groupvalue=`i' in `j'
 		}
+		replace grouplabel="Poorest 20%" if group=="wealth" & groupvalue==1
+		replace grouplabel="Richest 20%" if group=="wealth" & groupvalue==5
+		foreach ind of global indicators {
+			cap confirm var `ind'
+			if _rc==0 { 
+			qui sum `ind' if wealth!=.
+			if `r(N)'>25 {
+				levelsof wealth, local(wealth)
+				foreach i of local wealth {
+					local j=6+`i'-1
+					cap qui reg `ind' [aw=weight] if wealth==`i'
+					cap replace value`ind'=_b[_cons]*100 in `j'
+					cap replace se`ind'=_se[_cons]*100 in `j'
+					cap replace ss`ind'=e(N) in `j'
+				}
+			}
+			}
 		}
 	}
 	*Poverty
@@ -136,9 +139,34 @@ foreach file in `r(files)' {
 			}
 		}
 	}
+	*Disability
+	cap confirm var disability
+	if _rc==0 {
+		replace group="disability" in 13/14
+		replace groupvalue=0 in 13
+		replace grouplabel="No disability" in 13
+		replace groupvalue=1 in 14
+		replace grouplabel="With disability" in 14
+		foreach ind of global indicators {
+			cap confirm var `ind'
+			if _rc==0 { 
+			qui sum `ind' if disability!=.
+			if `r(N)'>25 {
+				qui reg `ind' [aw=weight] if disability==0
+				replace value`ind'=_b[_cons]*100 in 13
+				replace se`ind'=_se[_cons]*100 in 13
+				replace ss`ind'=e(N) in 13
+				qui reg `ind' [aw=weight] if disability==1
+				replace value`ind'=_b[_cons]*100 in 14
+				replace se`ind'=_se[_cons]*100 in 14
+				replace ss`ind'=e(N) in 14
+			}
+			}
+		}
+	}
 	*Regions
 	gen regid2=""
-	local j=13
+	local j=15
 	local lbe: value label region
 	levelsof region, local(reg)
 	foreach r of local reg {
@@ -196,7 +224,7 @@ list countrycode source round valueremotelearning indicator_valremotelearning if
 list countrycode source round valuehealthseeking indicator_valhealthseeking if _merge==3 & group=="all"
 list countrycode source round valuegovtsupport indicator_valgovtsupport if _merge==3 & group=="all"
 foreach ind in healthseeking remotelearning govtsupport {
-	replace ss`ind'=sample_s`ind' if wb_dashboard==1 & value`ind'==. & indicator_val`ind'!=.
+	replace ss`ind'=sample_subset`ind' if wb_dashboard==1 & value`ind'==. & indicator_val`ind'!=.
 	replace value`ind'=indicator_val`ind' if wb_dashboard==1 & value`ind'==. & indicator_val`ind'!=.
 }
 drop _merge sample_s* indicator_val*
