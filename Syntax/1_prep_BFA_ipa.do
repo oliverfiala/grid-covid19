@@ -1,29 +1,55 @@
 *Set working directory
-cd "S:\Advocacy Division\GPAR Department\Inclusive Development\Research\COVID-19\"
+cd "T:\PAC\Research\COVID-19\"
+
+
+*--- ROUNDS 1-2 ---
+forvalues r=1/2 {
 
 *Open survey
-use "source\ipa\BFA_RECOVR_round1.dta", clear
+if `r'==1 {
+	use "source\ipa\BFA_RECOVR_round1.dta", clear
+}
+if `r'==2 {
+	use "source\ipa\BFA_RECOVR_R2.dta", clear
+	destring caseid, replace force
+	merge 1:1 caseid using "source\ipa\BFA_RECOVR_round1.dta", nogen keepusing(dem1 dem2 dem3 area PPI) keep(match master)
+}
 
 *Disaggregation
 rename dem1 age
 rename dem2 sex		//Male 1 female 2
-rename dem3 region
-rename dem6 relocation
-rename dem10a primary
-rename dem10b secondary
-gen schoolchildren=0
-destring primary, replace
-destring secondary, replace
-replace schoolchildren=1 if primary>=1 | secondary>=1
-rename dem11 education
-rename hlth2 babies
-
 gen location=1
 replace location=2 if area=="Rural"
+if `r'==2 {
+	drop region
+	destring dem3f, replace force
+}
+rename dem3 region
+if `r'==2 {
+	replace region=dem3f if dem6==1
+}
+if `r'==1 {
+	rename dem6 relocation
+	rename dem10a primary
+	rename dem10b secondary
+	gen schoolchildren=0
+	destring primary, replace
+	destring secondary, replace
+	replace schoolchildren=1 if primary>=1 | secondary>=1
+	rename dem11 education
+	rename hlth2 babies
+}
 
 *Wealth disaggregation: create quintiles based on Poverty Probability Index
 gen _PPI=1-PPI
 xtile wealth=_PPI, n(5)
+
+gen round=`r'
+gen month=.
+if `r'==1 {
+	replace month=7
+}
+gen year=2020
 
 *Variables
 rename hlth4 healthseeking
@@ -89,7 +115,11 @@ replace regid="BFA.11_1" if region==11
 replace regid="BFA.12_1" if region==12
 replace regid="BFA.13_1" if region==13
 
+*Label
+label define month 1 "January" 2 "February" 3 "March" 4 "April" 5 "May" 6 "June" 7 "July" 8 "August" 9 "September" 10 "October" 11 "November" 12 "December"
+label values month month
 
 *Save
-keep sex location region regid wealth healthseeking fsec remotelearning* schoolreturn cashtransfer* govtsupport incomeloss
-save "prep\BFA_ipa_r1.dta", replace
+keep sex location region regid wealth healthseeking fsec remotelearning* schoolreturn cashtransfer* govtsupport incomeloss round month year
+save "prep\BFA_ipa_r`r'.dta", replace
+}

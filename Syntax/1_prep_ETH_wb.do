@@ -1,5 +1,5 @@
 *Set working directory
-cd "S:\Advocacy Division\GPAR Department\Inclusive Development\Research\COVID-19\"
+cd "T:\PAC\Research\COVID-19\"
 
 
 *--- ROUNDS 1-6 ---
@@ -7,6 +7,26 @@ cd "S:\Advocacy Division\GPAR Department\Inclusive Development\Research\COVID-19
 forvalues r=1/6 {
 use "source\wb\ETH\r`r'_wb_lsms_hfpm_hh_survey_public_microdata.dta", clear
 gen round=`r'
+gen year=2020
+gen month=.
+if `r'==1 {
+	replace month=4
+}
+if `r'==2 {
+	replace month=5
+}
+if `r'==3 {
+	replace month=6
+}
+if `r'==4 {
+	replace month=8
+}
+if `r'==5 {
+	replace month=9
+}
+if `r'==6 {
+	replace month=10
+}
 
 *Weights
 rename phw`r' weight
@@ -89,7 +109,11 @@ replace regid="ETH.7_1" if region==13
 replace regid="ETH.1_1" if region==14
 replace regid="ETH.5_1" if region==15
 
+*Label
+label define month 1 "January" 2 "February" 3 "March" 4 "April" 5 "May" 6 "June" 7 "July" 8 "August" 9 "September" 10 "October" 11 "November" 12 "December"
+label values month month
+
  *Save
-keep sex location region regid weight wealth round medicine medicaltreatment fsec remotelearning* govtsupport cashtransfer 
+keep sex location region regid weight wealth round medicine medicaltreatment fsec remotelearning* govtsupport cashtransfer month year
 save "prep\ETH_wb_r`r'.dta", replace
 }

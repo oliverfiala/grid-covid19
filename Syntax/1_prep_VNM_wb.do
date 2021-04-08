@@ -1,5 +1,5 @@
 *Set working directory
-cd "S:\Advocacy Division\GPAR Department\Inclusive Development\Research\COVID-19\"
+cd "T:\PAC\Research\COVID-19\"
 
 *--- ROUND 1 ---
 
@@ -12,7 +12,10 @@ use "source\wb\VNM\sec7.dta", clear		//Safety nets
 duplicates drop hhid2, force
 merge 1:1 hhid2 using "source\wb\VNM\main.dta", nogen		//Health
 merge 1:1 hhid2 using `sec4', nogen
+
 gen round=1
+gen month=7
+gen year=2020
 
 *Weights
 *variable weight already named weight
@@ -75,6 +78,10 @@ replace regid="VN.CH1" if region==4
 replace regid="VN.SE1" if region==5
 replace regid="VN.MR1" if region==6
 
+*Label
+label define month 1 "January" 2 "February" 3 "March" 4 "April" 5 "May" 6 "June" 7 "July" 8 "August" 9 "September" 10 "October" 11 "November" 12 "December"
+label values month month
+
 *Save
-keep sex location region regid wealth poor medicine medicaltreatment immunization natalcare remotelearning schoolreturn schoolstop fsec govtsupport incomeloss weight
+keep sex location region regid wealth poor medicine medicaltreatment immunization natalcare remotelearning schoolreturn schoolstop fsec govtsupport incomeloss weight month year
 save "prep\VNM_wb_r1.dta", replace

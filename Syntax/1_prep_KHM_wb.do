@@ -60,6 +60,17 @@ rename hhweight_adj weight
 
 *Rounds
 gen round=`r'
+gen year=2020
+gen month=.
+if `r'==1 {
+	replace month=5
+}
+if `r'==2 {
+	replace month=9
+}
+if `r'==3 {
+	replace month=11
+}
 
 *Disaggregation
 rename sector location		//1 urban 2 rural
@@ -128,27 +139,31 @@ replace incomeloss=0 if s7q2==1 | s7q2==2
 	
 *Regional attribution
 gen regid=""
-replace regid="KH.01" if region==1
-replace regid="KH.0224" if region==2 | region==24
-replace regid="KH.03" if region==3 | region==25		//Tboung Khmum Province still considered part of Kampong Cham, from which it was separated in 2013
-replace regid="KH.04" if region==4
-replace regid="KH.05" if region==5
-replace regid="KH.06" if region==6
-replace regid="KH.0723" if region==7		//Kampot includes Kep
-replace regid="KH.08" if region==8
-replace regid="KH.0918" if region==9 | region==18
-replace regid="KH.10" if region==10
-replace regid="KH.1116" if region==11 | region==16
-replace regid="KH.12" if region==12
-replace regid="KH.1319" if region==13 | region==19
-replace regid="KH.14" if region==14
-replace regid="KH.15" if region==15
-replace regid="KH.17" if region==17
-replace regid="KH.20" if region==20
-replace regid="KH.21" if region==21
-replace regid="KH.22" if region==22
+replace regid="KHDHS2014417001" if region==1
+replace regid="KHDHS2014417018" if region==2 | region==24
+replace regid="KHDHS2014417002" if region==3 | region==25		//Tboung Khmum Province still considered part of Kampong Cham, from which it was separated in 2013
+replace regid="KHDHS2014417003" if region==4
+replace regid="KHDHS2014417004" if region==5
+replace regid="KHDHS2014417005" if region==6
+replace regid="KHDHS2014417020" if region==7		//Kampot includes Kep
+replace regid="KHDHS2014417006" if region==8
+replace regid="KHDHS2014417021" if region==9 | region==18
+replace regid="KHDHS2014417014" if region==10
+replace regid="KHDHS2014417023" if region==11 | region==16
+replace regid="KHDHS2014417007" if region==12
+replace regid="KHDHS2014417013" if region==13 | region==19
+replace regid="KHDHS2014417008" if region==14
+replace regid="KHDHS2014417009" if region==15
+replace regid="KHDHS2014417016" if region==17
+replace regid="KHDHS2014417010" if region==20
+replace regid="KHDHS2014417011" if region==21
+replace regid="KHDHS2014417017" if region==22
+
+*Label
+label define month 1 "January" 2 "February" 3 "March" 4 "April" 5 "May" 6 "June" 7 "July" 8 "August" 9 "September" 10 "October" 11 "November" 12 "December"
+label values month month
 
 *Save
-keep round location region disability sex wealth poverty regid medicine medicaltreatment fsec remotelearning teacher govtsupport incomeloss weight
+keep round location region disability sex wealth poverty regid medicine medicaltreatment fsec remotelearning teacher govtsupport incomeloss weight month year
 save "prep\KHM_wb_r`r'.dta", replace
 }

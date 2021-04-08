@@ -1,5 +1,6 @@
 *Set working directory
-cd "S:\Advocacy Division\GPAR Department\Inclusive Development\Research\COVID-19\"
+cd "T:\PAC\Research\COVID-19\"
+
 
 *Open survey
 use "source\ipa\GHN_RECOVR_round1.dta", clear
@@ -19,6 +20,10 @@ gen location=.
 *Wealth disaggregation: create quintiles based on Poverty Probability Index
 gen _PPI=1-PPI
 xtile wealth=_PPI, n(5)
+
+gen round=1
+gen month=5
+gen year=2020
 
 *Variables
 rename hlth4 healthseeking
@@ -82,6 +87,10 @@ replace regid="GH.VOL" if region==14
 replace regid="GH.WES" if region==15
 replace regid="GH.WEN" if region==16
 
+*Label
+label define month 1 "January" 2 "February" 3 "March" 4 "April" 5 "May" 6 "June" 7 "July" 8 "August" 9 "September" 10 "October" 11 "November" 12 "December"
+label values month month
+
 *Save
-keep sex location region regid wealth healthseeking fsec remotelearning* cashtransfer* govtsupport incomeloss
+keep sex location region regid wealth healthseeking fsec remotelearning* cashtransfer* govtsupport incomeloss round month year
 save "prep\GHA_ipa_r1.dta", replace

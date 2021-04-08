@@ -1,18 +1,20 @@
 *Set working directory
-cd "S:\Advocacy Division\GPAR Department\Inclusive Development\Research\COVID-19\"
+cd "T:\PAC\Research\COVID-19\"
 
 
-*--- ROUNDS 1-4 ---
+*--- ROUNDS 1-5 ---
 
-forvalues r=1/4 {
+forvalues r=1/5 {
 *Prepare income loss file
-use "source\wb\MWI\sect7_income_loss_r`r'.dta", clear
-duplicates drop HHID, force
-gen incomeloss=.
-replace incomeloss=0 if s7q2==1 | s7q2==2		//Since mid-March (R1)/last call (R2-3-4)
-replace incomeloss=1 if s7q2==3
-tempfile sect7_income_loss_r`r'
-save `sect7_income_loss_r`r'', replace
+if `r'!=5 {
+	use "source\wb\MWI\sect7_income_loss_r`r'.dta", clear
+	duplicates drop HHID, force
+	gen incomeloss=.
+	replace incomeloss=0 if s7q2==1 | s7q2==2		//Since mid-March (R1)/last call (R2-3-4)
+	replace incomeloss=1 if s7q2==3
+	tempfile sect7_income_loss_r`r'
+	save `sect7_income_loss_r`r'', replace
+}
 
 *Open surveys and merge with income loss
 if `r'!=4 {
@@ -24,9 +26,15 @@ if `r'!=4 {
 }
 if `r'==4 {
 	use "source\wb\MWI\secta_cover_page_r`r'.dta", clear	//Disaggregation
-}	
-merge 1:1 HHID using `sect7_income_loss_r`r'', nogen keepusing(incomeloss)		//Income loss
-merge 1:1 HHID using "source\wb\MWI\sect5_access_r`r'.dta", nogen			//Health and education	
+}
+if `r'!=5 {	
+	merge 1:1 HHID using `sect7_income_loss_r`r'', nogen keepusing(incomeloss)		//Income loss
+}
+if 	`r'==5 {
+	merge 1:m HHID using "source\wb\MWI\sect5c_education_r5.dta", nogen		//Education
+	gen incomeloss=.
+}
+merge 1:1 HHID using "source\wb\MWI\sect5_access_r`r'.dta", nogen			//Health and education
 
 *Weights
 if `r'==1 {
@@ -34,6 +42,25 @@ if `r'==1 {
 	}
 else {
 	rename wt_round`r' weight
+}
+
+gen round=`r'
+gen year=2020
+gen month=.
+if `r'==1 {
+	replace month=6
+}
+if `r'==2 {
+	replace month=7
+}
+if `r'==3 {
+	replace month=8
+}
+if `r'==4 {
+	replace month=10
+}
+if `r'==5 {
+	replace month=11
 }
 
 *Prepare dataset by renaming & creating variables on interest
@@ -47,10 +74,10 @@ gen natalcare=.
 gen medicaltreatment=.
 gen medicine=.
 gen immunization=.
-if `r'==1 | `r'==2 {		
-	replace medicaltreatment=1 if s5q4==1	//Since 20th March (R1)/last call (R2)
+if `r'==1 | `r'==2 | `r'==5 {		
+	replace medicaltreatment=1 if s5q4==1	//Since 20th March (R1)/last call (R2-5)
 	replace medicaltreatment=0 if s5q4==2
-	replace medicine=1 if s5q1b3==1			//Since 20th March (R1)/last week (R2)
+	replace medicine=1 if s5q1b3==1			//Since 20th March (R1)/last week (R2-5)
 	replace medicine=0 if s5q1b3==2
 }
 if `r'==3 | `r'==4 {
@@ -80,6 +107,12 @@ if `r'==3 | `r'==4 {
 	replace schoolreturn=1 if s5q17==1		//When schools reopen in September (R3)/since schools reopened on September 7 (R4)
 	replace schoolreturn=0 if s5q17==2 | s5q17==3
 }
+if `r'==5 {
+	replace teacher=1 if s5cq8==1
+	replace teacher=0 if s5cq8==2
+	replace schoolreturn=1 if s5cq1==1		//Are any of the children in your household currently going to school?
+	replace schoolreturn=0 if s5cq1==2
+}
 
 *Nutrition (FIES scale http://www.fao.org/3/a-as583e.pdf)
 gen fsec=.
@@ -95,7 +128,7 @@ if `r'!=4 {
 }
 
 *Social protection
-gen govtsupport=.		//Any sort of assistance from any institution, timeframe: since 18th March (R1)/since last call (R2-3)
+gen govtsupport=.		//Any sort of assistance from any institution, timeframe: since 18th March (R1)/since last call (R2,3,5)
 gen cashtransfer_delay=.		//Refers to difficulties accessing any assistance, not only cash transfers
 if `r'!=4 {
 	replace govtsupport=1 if s11q1==1
@@ -142,7 +175,11 @@ replace regid="MWI.21_1" if region==311
 replace regid="MWI.1_1" if region==312
 replace regid="MWI.18_1" if region==313
 
+*Label
+label define month 1 "January" 2 "February" 3 "March" 4 "April" 5 "May" 6 "June" 7 "July" 8 "August" 9 "September" 10 "October" 11 "November" 12 "December"
+label values month month
+
 *Save
-keep sex location region regid wealth natalcare medicine medicaltreatment immunization fsec schoolreturn teacher remotelearning govtsupport incomeloss cashtransfer_delay weight
+keep sex location region regid wealth natalcare medicine medicaltreatment immunization fsec schoolreturn teacher remotelearning govtsupport incomeloss cashtransfer_delay weight round month year
 save "prep\MWI_wb_r`r'.dta", replace
 }

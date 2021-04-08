@@ -1,5 +1,6 @@
 *Set working directory
-cd "S:\Advocacy Division\GPAR Department\Inclusive Development\Research\COVID-19\"
+cd "T:\PAC\Research\COVID-19\"
+
 
 *--- ROUND 1 ---
 
@@ -17,6 +18,9 @@ duplicates list hhid interview__key interview__id
 duplicates drop hhid interview__key interview__id, force
 merge 1:1 hhid using "source\wb\TCD\round01_household.dta", nogen
 merge 1:1 interview__key interview__id using `round01_income', nogen keepusing(incomeloss)
+
+gen month=6
+gen year=2020
 
 *Weights
 rename Weight1 weight
@@ -84,6 +88,10 @@ replace regid="TCD.6_1" if region==20
 replace regid="TCD.19_1" if region==21
 replace regid="TCD.5_1" if region==23
 
+*Label
+label define month 1 "January" 2 "February" 3 "March" 4 "April" 5 "May" 6 "June" 7 "July" 8 "August" 9 "September" 10 "October" 11 "November" 12 "December"
+label values month month
+
 *Save
-keep sex location region regid weight wealth poor medicaltreatment fsec remotelearning teacher govtsupport incomeloss
+keep sex location region regid weight wealth poor medicaltreatment fsec remotelearning teacher govtsupport incomeloss month year
 save "prep\TCD_wb_r1.dta", replace

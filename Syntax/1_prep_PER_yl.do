@@ -1,5 +1,6 @@
 *Set working directory
-cd "S:\Advocacy Division\GPAR Department\Inclusive Development\Research\COVID-19\"
+cd "T:\PAC\Research\COVID-19\"
+
 
 *--- ROUND 1 ---
 *Open first survey
@@ -26,6 +27,10 @@ append using `pe_oc_covid_hh_arch'
 
 *Merge
 merge m:1 CHILDCODE using `pe_covid_arch', nogen
+
+gen round=1
+gen month=7
+gen year=2020
 
 *Disaggregation
 rename typesite_fc location
@@ -81,6 +86,10 @@ replace wellbeing=1 if SUBWELCOV1<=3	//1 Okay 0 Not okay
 replace wellbeing=0 if SUBWELCOV1>=4
 */
 
+*Label
+label define month 1 "January" 2 "February" 3 "March" 4 "April" 5 "May" 6 "June" 7 "July" 8 "August" 9 "September" 10 "October" 11 "November" 12 "December"
+label values month month
+
 *Save
-keep cohort age sex location poor region internetaccess fsec schoolinterrupt schoolreturn schoolremote /*outofschool homeworking wellbeing*/ remotelearning schoolswitch
+keep cohort age sex location poor region internetaccess fsec schoolinterrupt schoolreturn schoolremote /*outofschool homeworking wellbeing*/ remotelearning schoolswitch round month year
 save "prep/PER_yl_r1.dta", replace

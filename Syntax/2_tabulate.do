@@ -8,7 +8,7 @@ which folders
 global indicators healthseeking fsec remotelearning remotelearning_primary remotelearning_secondary schoolreturn cashtransfer cashtransfer_delay govtsupport medicine medicaltreatment natalcare schoolattendance teacher fseccovid
 
 *Calculate group-specific rates for surveys/rounds/indicators (saved in folder /dat in working directory)
-fs "prep/KHM*.dta"
+fs "prep/*.dta"
 foreach file in `r(files)' {
 	use "prep/`file'", clear
 	gen countrycode=upper(substr("`file'",1,3))
@@ -88,7 +88,7 @@ foreach file in `r(files)' {
 		}
 	}
 	*Wealth
-	cap confirm var poor
+	cap confirm var wealth
 	if _rc==0 {
 		replace group="wealth" in 6/10
 		forvalue i=1/5 {
@@ -194,20 +194,20 @@ foreach file in `r(files)' {
 		local j=`j'+1
 	}
 	drop if group==""
-	keep countrycode group* value* source round ss* se* regid2
+	keep countrycode group* value* source round ss* se* regid2 month year
 	drop sex
 	ren regid2 regid
 	local ccode=countrycode[1]
 	local source=source[1]
-	local round=round[1]	
+	local round=round[1]
 	save "dat/_`ccode'_`source'_r`round'.dta", replace
 }
-	
+
 *Merge different surveys/rounds
 clear
 fs "dat/_*.dta"
 foreach file in `r(files)' {
-	append using "dat/`file'"
+	append using "dat/`file'", nolabel 
 }
 order countrycode source round group* regid
 

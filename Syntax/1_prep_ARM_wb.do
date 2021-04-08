@@ -16,6 +16,8 @@ replace disability=1 if bq3==2 | bq3==3 | bq3==4
 replace disability=0 if bq3==1
 
 gen round=1
+gen month=9
+gen year=2020
 *weight already called weight for individual children
 
 *Health
@@ -54,6 +56,10 @@ replace regid="ARM.9_1" if region==9
 replace regid="ARM.10_1" if region==10
 replace regid="ARM.11_1" if region==11
 
+*Label
+label define month 1 "January" 2 "February" 3 "March" 4 "April" 5 "May" 6 "June" 7 "July" 8 "August" 9 "September" 10 "October" 11 "November" 12 "December"
+label values month month
+
 *Save
-keep sex location region disability regid medicaltreatment immunization remotelearning schoolreturn teacher weight
+keep sex location region disability regid medicaltreatment immunization remotelearning schoolreturn teacher weight month year
 save "prep\ARM_wb_r1.dta", replace

@@ -2,7 +2,8 @@
 cd "T:\PAC\Research\COVID-19\"
 
 *Import data from World Bank COVID-19 High-Frequency Monitoring Dashboard
-import excel using "http://pubdocs.worldbank.org/en/852181605043954639/COVID-19-Dashboard-Data-Latest.xlsx", sheet("2. Harmonized Indicators") firstrow case(lower) clear
+*import excel using "https://pubdocs.worldbank.org/en/852181605043954639/COVID-19-Dashboard-Data-Latest.xlsx", sheet("2. Harmonized Indicators") firstrow case(lower) clear
+import excel using "https://development-data-hub-s3-public.s3.amazonaws.com/ddhfiles/1235981/formatted_data15-mar-2021_external.xlsx", sheet("2. Harmonized Indicators") firstrow case(lower) clear
 keep if /*gender=="All" & */urban_rural=="National" & industry=="All"
 drop if income_group=="High income"
 ren code countrycode

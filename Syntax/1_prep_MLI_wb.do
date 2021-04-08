@@ -1,5 +1,5 @@
 *Set working directory
-cd "S:\Advocacy Division\GPAR Department\Inclusive Development\Research\COVID-19\"
+cd "T:\PAC\Research\COVID-19\"
 
 
 *--- ROUNDS 1-5 ---
@@ -67,6 +67,23 @@ if `r'==5 {
 }
 
 gen round=`r'
+gen year=2020
+gen month=.
+if `r'==1 {
+	replace month=6
+}
+if `r'==2 {
+	replace month=7
+}
+if `r'==3 {
+	replace month=8
+}
+if `r'==4 {
+	replace month=9
+}
+if `r'==5 {
+	replace month=10
+}
 
 *Weights
 rename hhweight_covid weight
@@ -167,7 +184,11 @@ replace regid="MLI.2_1" if region==7
 replace regid="MLI.4_1" if region==8
 replace regid="MLI.1_1" if region==9
 
+*Label
+label define month 1 "January" 2 "February" 3 "March" 4 "April" 5 "May" 6 "June" 7 "July" 8 "August" 9 "September" 10 "October" 11 "November" 12 "December"
+label values month month
+
 *Save
-keep sex location region regid wealth poor medicine medicaltreatment remotelearning schoolreturn teacher fsec fseccovid govtsupport weight
+keep sex location region regid wealth poor medicine medicaltreatment remotelearning schoolreturn teacher fsec fseccovid govtsupport weight round month year
 save "prep\MLI_wb_r`r'.dta", replace
 }

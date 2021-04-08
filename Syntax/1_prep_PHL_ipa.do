@@ -1,5 +1,6 @@
 *Set working directory
-cd "S:\Advocacy Division\GPAR Department\Inclusive Development\Research\COVID-19\"
+cd "T:\PAC\Research\COVID-19\"
+
 
 *Open survey
 use "source\ipa\PHP_RECOVR_round1.dta", clear
@@ -25,6 +26,10 @@ gen wealth=1 if _wealth==5
 replace wealth=2 if _wealth==4
 replace wealth=4 if _wealth==2
 replace wealth=5 if _wealth==1
+
+gen round=1
+gen month=7
+gen year=2020
 
 *Variables
 rename fsec1 mealsize
@@ -74,6 +79,10 @@ replace regid="PHDHS2017439017" if region==15
 replace regid="PHDHS2017439018" if region==16
 replace regid="PHDHS2017439020" if region==17
 
+*Label
+label define month 1 "January" 2 "February" 3 "March" 4 "April" 5 "May" 6 "June" 7 "July" 8 "August" 9 "September" 10 "October" 11 "November" 12 "December"
+label values month month
+
 *Save
-keep sex location region regid wealth fsec schoolreturn cashtransfer* govtsupport incomeloss
+keep sex location region regid wealth fsec schoolreturn cashtransfer* govtsupport incomeloss round month year
 save "prep\PHL_ipa_r1.dta", replace
